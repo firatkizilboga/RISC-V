@@ -9,6 +9,10 @@ module REGISTER #(
     output reg [size-1:0]out
 );
 
+initial begin
+    out = 0;
+end
+
 always @            (posedge clock) begin
     if          (inc) begin
             out <= out + default_increment;
