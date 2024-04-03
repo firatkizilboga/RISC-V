@@ -1,0 +1,117 @@
+#! /opt/homebrew/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x124709560 .scope module, "MUX_3IN_32DATA" "MUX_3IN_32DATA" 2 18;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "in_0";
+    .port_info 1 /INPUT 32 "in_1";
+    .port_info 2 /INPUT 2 "select";
+    .port_info 3 /OUTPUT 32 "out";
+o0x128028010 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0x12470d0b0_0 .net "in_0", 31 0, o0x128028010;  0 drivers
+o0x128028040 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0x12471eca0_0 .net "in_1", 31 0, o0x128028040;  0 drivers
+v0x12471ed50_0 .var "out", 31 0;
+o0x1280280a0 .functor BUFZ 2, C4<zz>; HiZ drive
+v0x12471ee10_0 .net "select", 1 0, o0x1280280a0;  0 drivers
+E_0x12470a130 .event edge, v0x12471ee10_0, v0x12471eca0_0, v0x12470d0b0_0;
+S_0x124707530 .scope module, "top" "top" 3 3;
+ .timescale 0 0;
+v0x12471f4e0_0 .var "in_0", 31 0;
+v0x12471f590_0 .var "in_1", 31 0;
+v0x12471f640_0 .net "mux_output", 31 0, v0x12471f320_0;  1 drivers
+v0x12471f710_0 .var "select_line", 0 0;
+S_0x12471ef20 .scope module, "mux" "MUX_2IN_32DATA" 3 13, 2 1 0, S_0x124707530;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "in_0";
+    .port_info 1 /INPUT 32 "in_1";
+    .port_info 2 /INPUT 1 "select";
+    .port_info 3 /OUTPUT 32 "out";
+v0x12471f1b0_0 .net "in_0", 31 0, v0x12471f4e0_0;  1 drivers
+v0x12471f270_0 .net "in_1", 31 0, v0x12471f590_0;  1 drivers
+v0x12471f320_0 .var "out", 31 0;
+v0x12471f3e0_0 .net "select", 0 0, v0x12471f710_0;  1 drivers
+E_0x12471f150 .event edge, v0x12471f3e0_0, v0x12471f270_0, v0x12471f1b0_0;
+    .scope S_0x124709560;
+T_0 ;
+    %wait E_0x12470a130;
+    %load/vec4 v0x12471ee10_0;
+    %dup/vec4;
+    %pushi/vec4 0, 0, 2;
+    %cmp/u;
+    %jmp/1 T_0.0, 6;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 2;
+    %cmp/u;
+    %jmp/1 T_0.1, 6;
+    %pushi/vec4 0, 2147483647, 32;
+    %assign/vec4 v0x12471ed50_0, 0;
+    %jmp T_0.3;
+T_0.0 ;
+    %load/vec4 v0x12470d0b0_0;
+    %assign/vec4 v0x12471ed50_0, 0;
+    %jmp T_0.3;
+T_0.1 ;
+    %load/vec4 v0x12471eca0_0;
+    %assign/vec4 v0x12471ed50_0, 0;
+    %jmp T_0.3;
+T_0.3 ;
+    %pop/vec4 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0x12471ef20;
+T_1 ;
+    %wait E_0x12471f150;
+    %load/vec4 v0x12471f3e0_0;
+    %dup/vec4;
+    %pushi/vec4 0, 0, 1;
+    %cmp/u;
+    %jmp/1 T_1.0, 6;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 1;
+    %cmp/u;
+    %jmp/1 T_1.1, 6;
+    %pushi/vec4 0, 2147483647, 32;
+    %assign/vec4 v0x12471f320_0, 0;
+    %jmp T_1.3;
+T_1.0 ;
+    %load/vec4 v0x12471f1b0_0;
+    %assign/vec4 v0x12471f320_0, 0;
+    %jmp T_1.3;
+T_1.1 ;
+    %load/vec4 v0x12471f270_0;
+    %assign/vec4 v0x12471f320_0, 0;
+    %jmp T_1.3;
+T_1.3 ;
+    %pop/vec4 1;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_0x124707530;
+T_2 ;
+    %pushi/vec4 170, 0, 32;
+    %store/vec4 v0x12471f4e0_0, 0, 32;
+    %pushi/vec4 187, 0, 32;
+    %store/vec4 v0x12471f590_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12471f710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 3 28 "$display", "Time: %d, Select: %d, Output: %h", $time, v0x12471f710_0, v0x12471f640_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12471f710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 3 31 "$display", "Time: %d, Select: %d, Output: %h", $time, v0x12471f710_0, v0x12471f640_0 {0 0 0};
+    %vpi_call 3 35 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "./mux.v";
+    "test.v";
