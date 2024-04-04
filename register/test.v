@@ -1,3 +1,4 @@
+//deprecated
 `include "registers/register.v"
 module top  (       );
 

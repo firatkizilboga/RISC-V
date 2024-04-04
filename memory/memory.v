@@ -1,24 +1,49 @@
-module DATA_MEMORY #(
-    parameter DATA_WIDTH = 8,      // Width of the data
-    parameter ADDR_WIDTH = 32,      // Number of address bits
-    parameter MEM_DEPTH = 1 << ADDR_WIDTH  // Depth of the memory
-) (
-    input wire clk,
-    input wire [ADDR_WIDTH-1:0] addr,  // Address input
-    input wire [DATA_WIDTH-1:0] data_in,  // Data input for write operations
+module DATA_MEMORY (
+    input wire [31:0] addr,  // Address input
+    input wire [31:0] data_in,  // Data input for write operations
     input wire we,  // Write enable
-    output reg [DATA_WIDTH-1:0] data_out  // Data output for read operations
+    input wire [1:0] size,
+    output reg [31:0] data_out  // Data output for read operations
 );
 
     // Memory array
-    reg [DATA_WIDTH-1:0] mem_array [0:10];
+    reg [7:0] mem_array [0:7];
 
     // Read and Write operations
-    always @(posedge clk) begin
+    always @(addr,data_in,data_out,we,size) begin
         if (we) begin
-            mem_array[addr] <= data_in;  // Write operation
+            case (size)
+                2'd0: mem_array[addr] <= data_in[7:0];
+                2'd1: begin
+                    mem_array[addr] <= data_in[15:8];
+                    mem_array[addr+1] <= data_in[7:0];
+                end
+                2'd2: begin
+                    mem_array[addr] <= data_in[23:16];
+                    mem_array[addr+1] <= data_in[15:8];
+                    mem_array[addr+2] <= data_in[7:0];
+                end
+                2'd3: begin
+                    mem_array[addr] <= data_in[31:24];
+                    mem_array[addr+1] <= data_in[23:16];
+                    mem_array[addr+2] <= data_in[15:8];
+                    mem_array[addr+3] <= data_in[7:0];
+                end
+                default: begin
+                    mem_array[addr] <= data_in[31:24];
+                    mem_array[addr+1] <= data_in[23:16];
+                    mem_array[addr+2] <= data_in[15:8];
+                    mem_array[addr+3] <= data_in[7:0];
+                end
+            endcase
         end
-        data_out <= mem_array[addr];  // Read operation
+        case (size)
+            2'd0: data_out <= {mem_array[addr]};
+            2'd1: data_out <= {mem_array[addr], mem_array[addr+1]};
+            2'd2: data_out <= {mem_array[addr], mem_array[addr+1], mem_array[addr+2]};
+            2'd3: data_out <= {mem_array[addr], mem_array[addr+1], mem_array[addr+2], mem_array[addr+3]};
+            default: data_out <= {mem_array[addr], mem_array[addr+1], mem_array[addr+2], mem_array[addr+3]};
+        endcase
     end
 
     // Initial block to load memory from a file
@@ -28,27 +53,25 @@ module DATA_MEMORY #(
 
 endmodule
 
-module INSTRUCTION_MEMORY #(
-    parameter DATA_WIDTH = 8,      // Width of the data
-    parameter ADDR_WIDTH = 32,      // Number of address bits
-    parameter MEM_DEPTH = 1 << ADDR_WIDTH  // Depth of the memory
-) (
-    input wire clk,
-    input wire [ADDR_WIDTH-1:0] addr,  // Address input
-    output reg [DATA_WIDTH-1:0] data_out  // Data output for read operations
+module INSTRUCTION_MEMORY (
+    input wire [31:0] addr,  // Address input
+    input wire [1:0] size,
+    output reg [31:0] data_out  // Data output for read operations
 );
 
-    // Memory array
-    reg [DATA_WIDTH-1:0] mem_array [0:20];
-
-    // Read and Write operations
-    always @(posedge clk) begin
-        data_out <= mem_array[addr];  // Read operation
+    reg [7:0] mem_array [0:7];
+    always @(addr, size) begin
+        case (size)
+            2'd0: data_out <= {mem_array[addr]};
+            2'd1: data_out <= {mem_array[addr], mem_array[addr+1]};
+            2'd2: data_out <= {mem_array[addr], mem_array[addr+1], mem_array[addr+2]};
+            2'd3: data_out <= {mem_array[addr], mem_array[addr+1], mem_array[addr+2], mem_array[addr+3]};
+            default: data_out <= {mem_array[addr], mem_array[addr+1], mem_array[addr+2], mem_array[addr+3]};
+        endcase
     end
 
     // Initial block to load memory from a file
     initial begin
         $readmemh("memory/instructions.mem", mem_array); // Replace "memory_file.mem" with your variable file name
     end
-    
 endmodule

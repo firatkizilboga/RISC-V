@@ -1,4 +1,7 @@
+`ifndef ALU_OPERATION_ADD
 `include "alu/alu.v"
+`endif
+
 `define R_TYPE 7'b0110011
 `define I_TYPE 7'b0010011
 `define J_TYPE 7'b1101111
@@ -25,7 +28,7 @@ module DecodeControl (
     output  reg     [4:0]                               RF_SEL_2    ,
     output  reg     [4:0]                               RF_SEL_RD   ,
 
-    output reg branch_taken,
+    output  reg                                         branch_taken    ,
     output  reg     [6:0]                               OPCODE  
 
     );
@@ -43,7 +46,10 @@ always @(instruction    ) begin
         `U_TYPE: processUType(instruction   );
         `B_TYPE: processBType(instruction   );
         `S_TYPE: processSType(instruction   );
-        default: $finish;
+        default:
+        begin
+            $display("damn");
+        end
     endcase
 end
 

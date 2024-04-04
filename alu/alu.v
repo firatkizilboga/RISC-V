@@ -6,7 +6,16 @@
 `define ALU_OPERATION_SLL 3'b101
 `define ALU_OPERATION_SRL 3'b110
 `define ALU_OPERATION_SRA 3'b111
+module PCINC (
+    input wire [31:0] PC,
+    output reg [31:0] out
+);
 
+always @(PC) begin
+    out <= out + 32'd4;
+end
+
+endmodule
 module ALU (
     input   wire    [2:0]                               opcode  ,
     input   wire    [31:0]                              op_0    ,

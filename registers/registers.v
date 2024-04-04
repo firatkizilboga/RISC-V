@@ -1,5 +1,4 @@
 module Registers     (
-    input   wire                                        clock   ,
     input   wire                                        WR_EN    ,
     input   wire    [4:0]                               reg_1_select    ,
     input   wire    [4:0]                               reg_2_select    ,
@@ -22,7 +21,7 @@ end
 
 
 
-always @(posedge clock  ) begin
+always @(WR_EN, reg_1_select ,reg_2_select, data_in, write_select) begin
     reg_1   <= registers[reg_1_select];
     reg_2   <= registers[reg_2_select];
 

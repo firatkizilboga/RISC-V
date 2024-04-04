@@ -4,7 +4,7 @@
 module TestbenchDataMemory;
 
     // Parameters
-    parameter DATA_WIDTH = 8;
+    parameter DATA_WIDTH = 32;
     parameter ADDR_WIDTH = 32;
 
     // Signals
@@ -15,11 +15,7 @@ module TestbenchDataMemory;
     wire [DATA_WIDTH-1:0] data_out;
 
     // Instantiate the DATA_MEMORY module
-    DATA_MEMORY #(
-        .DATA_WIDTH(DATA_WIDTH),
-        .ADDR_WIDTH(ADDR_WIDTH)
-    ) data_memory_inst (
-        .clk(clk),
+    DATA_MEMORY data_memory_inst (
         .addr(addr),
         .data_in(data_in),
         .we(we),
@@ -64,7 +60,7 @@ endmodule
 module TestbenchInstructionMemory;
 
     // Parameters
-    parameter DATA_WIDTH = 8;
+    parameter DATA_WIDTH = 32;
     parameter ADDR_WIDTH = 32;
 
     // Signals
@@ -73,11 +69,7 @@ module TestbenchInstructionMemory;
     wire [DATA_WIDTH-1:0] data_out;
 
     // Instantiate the INSTRUCTION_MEMORY module
-    INSTRUCTION_MEMORY #(
-        .DATA_WIDTH(DATA_WIDTH),
-        .ADDR_WIDTH(ADDR_WIDTH)
-    ) instruction_memory_inst (
-        .clk(clk),
+    INSTRUCTION_MEMORY instruction_memory_inst (
         .addr(addr),
         .data_out(data_out)
     );
