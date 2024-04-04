@@ -9,8 +9,8 @@
 
 module ALU (
     input   wire    [2:0]                               opcode  ,
-    input   wire    [31:0]                              in_0    ,
-    input   wire    [31:0]                              in_1    ,
+    input   wire    [31:0]                              op_0    ,
+    input   wire    [31:0]                              op_1    ,
     output  reg     [31:0]                              out ,
     output  reg                                         ZERO    ,   
     output  reg                                         NEGATIVE    
@@ -23,26 +23,26 @@ initial begin
     NEGATIVE    = 0;
 end
 
-always @(opcode, in_0, in_1 ) begin
+always @(opcode, op_0, op_1 ) begin
     
 
     case (opcode    )
         `ALU_OPERATION_ADD:
-            out     = in_0 + in_1;
+            out     = op_0 + op_1;
         `ALU_OPERATION_SUB:
-            out     = in_0 - in_1;
+            out     = op_0 - op_1;
         `ALU_OPERATION_AND:
-            out     = in_0 & in_1;
+            out     = op_0 & op_1;
         `ALU_OPERATION_OR:
-            out     = in_0 | in_1;
+            out     = op_0 | op_1;
         `ALU_OPERATION_XOR:
-            out     = in_0 ^ in_1;
+            out     = op_0 ^ op_1;
         `ALU_OPERATION_SLL:
-            out     = in_0 << in_1[4:0];
+            out     = op_0 << op_1[4:0];
         `ALU_OPERATION_SRL:
-            out     = in_0 >> in_1[4:0];
+            out     = op_0 >> op_1[4:0];
         `ALU_OPERATION_SRA:
-            out     = ($signed(in_0)) >>> in_1[4:0]; 
+            out     = ($signed(op_0)) >>> op_1[4:0]; 
         default: 
             out     = 0;
     endcase

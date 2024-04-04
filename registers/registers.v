@@ -1,6 +1,6 @@
 module Registers     (
     input   wire                                        clock   ,
-    input   wire                                        write_enable    ,
+    input   wire                                        WR_EN    ,
     input   wire    [4:0]                               reg_1_select    ,
     input   wire    [4:0]                               reg_2_select    ,
     input   wire    [31:0]                              data_in ,
@@ -26,7 +26,7 @@ always @(posedge clock  ) begin
     reg_1   <= registers[reg_1_select];
     reg_2   <= registers[reg_2_select];
 
-    if (write_enable && (write_select != 5'd0)) begin
+    if (WR_EN && (write_select != 5'd0)) begin
         registers[write_select]     <= data_in;
     end
 end

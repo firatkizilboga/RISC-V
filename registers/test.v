@@ -5,7 +5,7 @@ module test;
 
     // Inputs
     reg clock;
-    reg write_enable;
+    reg WR_EN;
     reg [4:0] reg_1_select;
     reg [4:0] reg_2_select;
     reg [31:0] data_in;
@@ -18,7 +18,7 @@ module test;
     // Instantiate the Unit Under Test (UUT)
     Registers uut (
         .clock(clock), 
-        .write_enable(write_enable), 
+        .WR_EN(WR_EN), 
         .reg_1_select(reg_1_select), 
         .reg_2_select(reg_2_select), 
         .data_in(data_in), 
@@ -30,7 +30,7 @@ module test;
     initial begin
         // Initialize Inputs
         clock = 0;
-        write_enable = 0;
+        WR_EN = 0;
         reg_1_select = 0;
         reg_2_select = 0;
         data_in = 0;
@@ -40,7 +40,7 @@ module test;
         #100;
         
         // Write 0xAAAA_AAAA to register 16
-        write_enable = 1;
+        WR_EN = 1;
         write_select = 5'd16;
         data_in = 32'hAAAA_AAAA;
         $display("Time: %d, Writing 0x%h to register %d", $time, data_in, write_select);
@@ -53,21 +53,21 @@ module test;
         #10; clock = 1; #10; clock = 0;
 
         // Read from registers 16 and 17
-        write_enable = 0;
+        WR_EN = 0;
         reg_1_select = 5'd16;
         reg_2_select = 5'd17;
         #10; clock = 1; #10; clock = 0;
         $display("Time: %d, Read reg_1: 0x%h, reg_2: 0x%h", $time, reg_1, reg_2);
 
         // Attempt to write to register 0
-        write_enable = 1;
+        WR_EN = 1;
         write_select = 5'd0;
         data_in = 32'hCCCC_CCCC;
         $display("Time: %d, Attempting to write 0x%h to register %d", $time, data_in, write_select);
         #10; clock = 1; #10; clock = 0;
 
         // Read from register 1 (expected unchanged)
-        write_enable = 0;
+        WR_EN = 0;
         reg_1_select = 5'd1;
         #10; clock = 1; #10; clock = 0;
         $display("Time: %d, Read reg_1 (expected unchanged): 0x%h", $time, reg_1);

@@ -4,8 +4,8 @@ module ALUTest;
 
     // Inputs
     reg [2:0] opcode;
-    reg [31:0] in_0;
-    reg [31:0] in_1;
+    reg [31:0] op_0;
+    reg [31:0] op_1;
 
     // Outputs
     wire [31:0] out;
@@ -15,8 +15,8 @@ module ALUTest;
     // Instantiate the ALU module
     ALU uut (
         .opcode(opcode), 
-        .in_0(in_0), 
-        .in_1(in_1), 
+        .op_0(op_0), 
+        .op_1(op_1), 
         .out(out), 
         .ZERO(ZERO), 
         .NEGATIVE(NEGATIVE)
@@ -25,78 +25,78 @@ module ALUTest;
     initial begin
         // Test ADD operation
         opcode = `ALU_OPERATION_ADD; // ADD
-        in_0 = 32'd15;
-        in_1 = 32'd10;
+        op_0 = 32'd15;
+        op_1 = 32'd10;
         #10; // Wait for the operation to complete
-        $display("ADD Test: %d + %d = %d", in_0, in_1, out);
+        $display("ADD Test: %d + %d = %d", op_0, op_1, out);
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
 
 
         // Test SUB operation
         opcode = `ALU_OPERATION_SUB; // SUB
-        in_0 = 32'd20;
-        in_1 = 32'd5;
+        op_0 = 32'd20;
+        op_1 = 32'd5;
         #10;
-        $display("SUB Test: %d - %d = %d", in_0, in_1, out);
+        $display("SUB Test: %d - %d = %d", op_0, op_1, out);
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
 
         opcode = `ALU_OPERATION_SUB; // SUB
-        in_0 = 32'd5;
-        in_1 = 32'd20;
+        op_0 = 32'd5;
+        op_1 = 32'd20;
         #10;
-        $display("SUB Test: %d - %d = %d", in_0, in_1, $signed(out));
+        $display("SUB Test: %d - %d = %d", op_0, op_1, $signed(out));
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
 
         // Test AND operation
         opcode = `ALU_OPERATION_AND; // AND
-        in_0 = 32'b10101010;
-        in_1 = 32'b11001100;
+        op_0 = 32'b10101010;
+        op_1 = 32'b11001100;
         #10;
-        $display("AND Test: %b & %b = %b", in_0, in_1, out);
+        $display("AND Test: %b & %b = %b", op_0, op_1, out);
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
 
         // Test OR operation
         opcode = `ALU_OPERATION_OR; // OR
-        in_0 = 32'b10101010;
-        in_1 = 32'b11001100;
+        op_0 = 32'b10101010;
+        op_1 = 32'b11001100;
         #10;
-        $display("OR Test: %b | %b = %b", in_0, in_1, out);
+        $display("OR Test: %b | %b = %b", op_0, op_1, out);
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
 
         // Test XOR operation
         opcode = `ALU_OPERATION_XOR; // XOR
-        in_0 = 32'b10101010;
-        in_1 = 32'b11001100;
+        op_0 = 32'b10101010;
+        op_1 = 32'b11001100;
         #10;
-        $display("XOR Test: %b ^ %b = %b", in_0, in_1, out);
+        $display("XOR Test: %b ^ %b = %b", op_0, op_1, out);
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
 
         // Test SLL operation
         opcode = `ALU_OPERATION_SLL; // SLL
-        in_0 = 32'd15;
-        in_1 = 32'h4; // Shift by 4
+        op_0 = 32'd15;
+        op_1 = 32'h4; // Shift by 4
         #10;
-        $display("SLL Test: %d << %h = %d", in_0, in_1[4:0], out);
+        $display("SLL Test: %d << %h = %d", op_0, op_1[4:0], out);
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
 
         // Test SRL operation
         opcode = `ALU_OPERATION_SRL; // SRL
-        in_0 = 32'd120;
-        in_1 = 32'h3; // Shift by 3
+        op_0 = 32'd120;
+        op_1 = 32'h3; // Shift by 3
         #10;
-        $display("SRL Test (Unsigned): %d >> %h = %d", in_0, in_1[4:0], out);
+        $display("SRL Test (Unsigned): %d >> %h = %d", op_0, op_1[4:0], out);
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
 
         // Test SRA operation
         opcode = `ALU_OPERATION_SRA; // SRA
-        in_0 = -32'd120;
-        in_1 = 32'h3; // Shift by 3
+        op_0 = -32'd120;
+        op_1 = 32'h3; // Shift by 3
         #10;
-        $display("SRA Test (Signed): %b >>> %b = %b", in_0, in_1[4:0], out);
+        $display("SRA Test (Signed): %b >>> %b = %b", op_0, op_1[4:0], out);
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
 
         #10;
-        $display("SRA Test (Signed): %b >>> %b = %b", in_0, in_1[4:0], out);
+        $display("SRA Test (Signed): %b >>> %b = %b", op_0, op_1[4:0], out);
         $display("flags, ZERO=%d, NEGATIVE = %d", ZERO, NEGATIVE);
         $finish;
     end
