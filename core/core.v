@@ -20,23 +20,27 @@ module CORE     (
         );
 
     PCINC PCNext(
-        .PC(PC.out  )
+        .clock(clock),
+        .PC(PC.out)
         );
 
     INSTRUCTION_MEMORY IM(
+	.clock(clock),
         .addr(PC.out)
         );
     
 
     DecodeControl DCU(
+        .clock(clock),
         .instruction(IM.data_out)
         );
 
     Registers RF(
+        .clock(clock),
         .WR_EN(DCU.RF_WR_EN ),
         .reg_1_select(DCU.RF_SEL_1  ),
         .reg_2_select(DCU.RF_SEL_2  ),
-        .data_in(ALU_32.out ),
+        .data_in(RF_DATA_IN_MUX.out  ),
         .write_select(DCU.RF_SEL_RD )
         );
 
@@ -54,6 +58,7 @@ module CORE     (
         );
 
     ALU ALU_32(
+        .clock(clock),
         .opcode(DCU.ALU_OPCODE  ),
         .op_0(ALU_OP_1_MUX.out  ),
         .op_1(ALU_OP_2_MUX.out  )
@@ -73,6 +78,7 @@ module CORE     (
         );
     
     always @(clock) begin
+        $display("############################");
         $display("Time: %d, Clock: %b", $time, clock);
 
         // Displaying outputs of PC_IN_MUX
@@ -83,6 +89,7 @@ module CORE     (
 
         // Displaying outputs of PCNext (PC Increment)
         $display("PCNext.out: %h", PCNext.out);
+        $display("PCNext.PC: %h", PCNext.PC);
 
         // Displaying outputs of Instruction Memory
         $display("IM.data_out: %h", IM.data_out);
@@ -93,6 +100,7 @@ module CORE     (
         $display("DCU.RF_SEL_1: %h", DCU.RF_SEL_1);
         $display("DCU.RF_SEL_2: %h", DCU.RF_SEL_2);
         $display("DCU.RF_SEL_RD: %h", DCU.RF_SEL_RD);
+	$display("DCU.RF_DATA_IN_MUX_SEL: %h", DCU.RF_DATA_IN_MUX_SEL);
         $display("DCU.ALU_OP_1_MUX_SEL: %b", DCU.ALU_OP_1_MUX_SEL);
         $display("DCU.ALU_OP_2_MUX_SEL: %b", DCU.ALU_OP_2_MUX_SEL);
         $display("DCU.ALU_OPCODE: %h", DCU.ALU_OPCODE);
@@ -113,9 +121,8 @@ module CORE     (
         $display("DM.data_out: %h", DM.data_out);
 
         // Displaying output of RF Data In Mux
-        $display("RF_DATA_IN_MUX.out: %h", RF_DATA_IN_MUX.out);
 
-        // Add any additional displays for signals not mentioned above
+        $display("RF_DATA_IN_MUX.out: %h", RF_DATA_IN_MUX.out);
     end
 
 endmodule

@@ -1,6 +1,5 @@
 module Register #(
-    parameter                                           size    = 32,
-    parameter                                           default_increment   = 4
+    parameter                                           size    = 32
     )           (
     input   wire                                        clock   ,
     input   wire    [size-1:0]                          in  ,
@@ -11,8 +10,8 @@ initial begin
     out     = 0;
 end
 
-always @            (posedge clock  ) begin
-    out     <= in;
+always @  (posedge clock  ) begin
+	out     = in;	
 end
 
 endmodule

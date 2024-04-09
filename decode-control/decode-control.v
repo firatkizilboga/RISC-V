@@ -10,211 +10,115 @@
 `define S_TYPE 7'b0100011
 
 module DecodeControl (
+input wire clock,
     input   wire    [31:0]                              instruction ,
 
-    output  reg                                         PC_IN_MUX_SEL   ,
+    output  wire                                         PC_IN_MUX_SEL   ,
 
-    output  reg                                         ALU_OP_1_MUX_SEL    ,
-    output  reg                                         ALU_OP_2_MUX_SEL    ,
-    output  reg     [2:0]                               ALU_OPCODE  ,
+    output  wire                                         ALU_OP_1_MUX_SEL    ,
+    output  wire                                         ALU_OP_2_MUX_SEL    ,
+    output  wire     [2:0]                               ALU_OPCODE  ,
 
-    output  reg                                         RF_WR_EN    ,
-    output  reg     [1:0]                               RF_DATA_IN_MUX_SEL  ,
+    output  wire                                         RF_WR_EN    ,
+    output  wire     [1:0]                               RF_DATA_IN_MUX_SEL  ,
 
-    output  reg                                         DATA_MEMORY_WR_EN   ,
-    output  reg     [31:0]                              immediate   ,
+    output  wire                                         DATA_MEMORY_WR_EN   ,
+    output  wire     [31:0]                              immediate   ,
 
-    output  reg     [4:0]                               RF_SEL_1    ,
-    output  reg     [4:0]                               RF_SEL_2    ,
-    output  reg     [4:0]                               RF_SEL_RD   ,
+    output  wire     [4:0]                               RF_SEL_1    ,
+    output  wire     [4:0]                               RF_SEL_2    ,
+    output  wire     [4:0]                               RF_SEL_RD   ,
 
-    output  reg                                         branch_taken    ,
-    output  reg     [6:0]                               OPCODE  
+    output  wire                                         branch_taken    ,
+    output  wire     [6:0]                               OPERATION  
 
-    );
-    reg             [6:0]                               func7   ;
-    reg             [2:0]                               func3   ;
-always @(instruction    ) begin
-        OPCODE  = instruction[6:0];
+    );	
 
+	assign OPERATION = instruction[6:0];
+	
+	assign R_TYPE = (instruction[6:0] == `R_TYPE);
+	assign I_TYPE = (instruction[6:0] == `I_TYPE);
+	assign J_TYPE = (instruction[6:0] == `J_TYPE);
+	assign U_TYPE = (instruction[6:0] == `U_TYPE);
+	assign B_TYPE = (instruction[6:0] == `B_TYPE);
+	assign S_TYPE = (instruction[6:0] == `S_TYPE);
 
-    //type detection
-    case (OPCODE    )
-        `R_TYPE: processRType(instruction   );
-        `I_TYPE: processIType(instruction   );
-        `J_TYPE: processJType(instruction   );
-        `U_TYPE: processUType(instruction   );
-        `B_TYPE: processBType(instruction   );
-        `S_TYPE: processSType(instruction   );
-        default:
-        begin
-            $display("damn");
-        end
-    endcase
-end
+	assign func3  = instruction[14:12];
+	
+	wire [6:0] R_func7, R_rd, R_rs1, R_rs2;
+	assign R_func7  = instruction[31:25];
+	assign R_rd     = instruction[11:7];
+	assign R_rs1    = instruction[19:15];
+	assign R_rs2    = instruction[24:20];
 
-task processRType(input [31:0]instr );
-    begin
-        func7           = instruction[31:25];  
-        RF_SEL_2        = instruction[24:20];
-        RF_SEL_1        = instruction[19:15];
-        func3           = instruction[14:12];
-        RF_SEL_RD       = instruction[11: 7];
+	wire [4:0] I_rd, I_rs1, I_rs2;
+	wire [11:0] I_imm;
+	assign I_rd     = instruction[11:7];
+	assign I_rs1    = instruction[19:15];
+	assign I_imm    = instruction[31:20];
 
-        case (func3)
-            3'h0://add sub
-                begin
-                if (func7 == 7'h00) begin
-                    ALU_OPCODE  = `ALU_OPERATION_ADD;
-                end 
-                if (func7 == 7'h20) begin
-                    ALU_OPCODE  = `ALU_OPERATION_SUB;
-                end
-                end
-                
+	//compute the related alu opcode
+	// func3 & func7 -> alu opcode (R_TYPE && `ALU_OPERATION_XXX)
+	// 0x0 & 0x0 -> add
+	// 0x0 & 0x20 -> sub
+	// 0x1 & 0x0 -> sll
+	// 0x2 & 0x0 -> slt
+	// 0x3 & 0x0 -> sltu
+	// 0x4 & 0x0 -> xor
+	// 0x5 & 0x0 -> srl
+	// 0x5 & 0x20 -> sra
+	// 0x6 & 0x0 -> or
+	// 0x7 & 0x0 -> and
+	assign ALU_OPCODE =			(R_TYPE && func3 == 3'h0 && R_func7 == 7'h0) ? `ALU_OPERATION_ADD :
+						(R_TYPE && func3 == 3'h0 && R_func7 == 7'h20) ? `ALU_OPERATION_SUB :
+						(R_TYPE && func3 == 3'h1 && R_func7 == 7'h0) ? `ALU_OPERATION_SLL :
+						(R_TYPE && func3 == 3'h4 && R_func7 == 7'h0) ? `ALU_OPERATION_XOR :
+						(R_TYPE && func3 == 3'h5 && R_func7 == 7'h0) ? `ALU_OPERATION_SRL :
+						(R_TYPE && func3 == 3'h5 && R_func7 == 7'h20) ? `ALU_OPERATION_SRA :
+						(R_TYPE && func3 == 3'h6 && R_func7 == 7'h0) ? `ALU_OPERATION_OR :
+						(R_TYPE && func3 == 3'h7 && R_func7 == 7'h0) ? `ALU_OPERATION_AND :
+						(I_TYPE && func3 == 3'h0) ? `ALU_OPERATION_ADD :
+						(I_TYPE && func3 == 3'h1 && I_imm[11: 5] == 7'h0) ? `ALU_OPERATION_SLL :
+						(I_TYPE && func3 == 3'h4) ? `ALU_OPERATION_XOR :
+						(I_TYPE && func3 == 3'h5  && I_imm[11: 5] == 7'h0) ? `ALU_OPERATION_SRL :
+						(I_TYPE && func3 == 3'h5  && I_imm[11: 5] == 7'h20) ? `ALU_OPERATION_SRA :
+						(I_TYPE && func3 == 3'h6) ? `ALU_OPERATION_OR :
+						(I_TYPE && func3 == 3'h7) ? `ALU_OPERATION_AND : 3'b0;
+	
+	assign ALU_OP_1_MUX_SEL =	(R_TYPE) ? 1'b1 :
+					(I_TYPE) ? 1'b1 : 1'b0;
 
-            3'h4://xor
-                if (func7 == 7'h00) begin
-                    ALU_OPCODE  = `ALU_OPERATION_XOR;
-                end
+	assign ALU_OP_2_MUX_SEL =	(R_TYPE) ? 1'b0 :
+					(I_TYPE) ? 1'b1: 1'b0;
+	
+	
+	assign DATA_MEMORY_WR_EN =	(S_TYPE) ? 1'b1 : 1'b0;
 
-            3'h6://or
-                if (func7 == 7'h00) begin
-                    ALU_OPCODE  = `ALU_OPERATION_OR;
-                end
+	assign immediate =	(I_TYPE) ? { {20{instruction[31]}}, instruction[31:20] } :
+				(S_TYPE) ? { {20{instruction[31]}}, instruction[31:25], instruction[11:7] } :
+				(B_TYPE) ? { {19{instruction[31]}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0 } :
+				(U_TYPE) ? { {12{instruction[31]}}, instruction[31:12] } :
+				(J_TYPE) ? { {11{instruction[31]}}, instruction[31], instruction[19:12], instruction[20], instruction[30:21], 1'b0 } : 32'b0;
+	
+	assign RF_SEL_1 =	(R_TYPE) ? R_rs1 :
+				(I_TYPE) ? I_rs1 : 5'b0;
+	
+	assign RF_SEL_2 =	(R_TYPE) ? R_rs2 :
+				(I_TYPE) ? 5'b0 : 5'b0;
 
-            3'h7://and
-                if (func7 == 7'h00) begin
-                    ALU_OPCODE  = `ALU_OPERATION_AND;
-                end
+	assign RF_SEL_RD =	(R_TYPE) ? R_rd :
+				(I_TYPE) ? I_rd : 5'b0;
+	
+	assign RF_WR_EN =	(R_TYPE) ? 1'b1 : 
+				(I_TYPE) ? 1'b1 : 1'b0;
+	
+	assign RF_DATA_IN_MUX_SEL =	(R_TYPE) ? 2'b01 :
+					(I_TYPE) ? 2'b01 : 2'b00;
+	
+	assign branch_taken =	(B_TYPE) ? 1'b1 : 1'b0;
 
-            3'h1://sll
-                if (func7 == 7'h00) begin
-                    ALU_OPCODE  = `ALU_OPERATION_SLL;
-                end
+	assign PC_IN_MUX_SEL =	(J_TYPE) ? 1'b1 : 1'b0;
 
-            3'h5://srl //sra
-                begin    
-                if (func7 == 7'h00) begin
-                    ALU_OPCODE  = `ALU_OPERATION_SRL;
-                end
-                if (func7 == 7'h20) begin
-                    ALU_OPCODE  = `ALU_OPERATION_SRA;
-                end
-                end
-            3'h2://slt
-                if (func7 == 7'h00) begin
-                    //TODO: IMPLEMENT LATER
-                    $finish;
-                end
-
-            3'h3://sltu 
-                if (func7 == 7'h00) begin
-                    //TODO: IMPLEMENT LATER
-                    $finish;
-                end
-
-            default: 
-                $finish;  
-        endcase
-
-        PC_IN_MUX_SEL = 1'b0;
-        ALU_OP_1_MUX_SEL = 1'b1;
-        ALU_OP_2_MUX_SEL = 1'b0;
-        branch_taken = 1'b0;
-        DATA_MEMORY_WR_EN = 1'b0;
-        RF_DATA_IN_MUX_SEL = 2'b01;
-        RF_WR_EN    = 1'b1;
-    end
-endtask
-
-
-
-task processIType(input [31:0]instr );
-    begin
-        immediate       = instruction[31:20];
-        RF_SEL_1        = instruction[19:15];
-        func3           = instruction[14:12];
-        RF_SEL_RD       = instruction[11: 7];
-
-        case (func3)
-            3'h0://addi
-                    ALU_OPCODE  = `ALU_OPERATION_ADD;
-
-            3'h4://xori
-                    ALU_OPCODE  = `ALU_OPERATION_XOR;
-
-            3'h6://ori
-                    ALU_OPCODE  = `ALU_OPERATION_OR;
-
-            3'h7://andi
-                    ALU_OPCODE  = `ALU_OPERATION_AND;
-
-            3'h1://slli
-                if (immediate[11:5] == 7'h00) begin
-                    ALU_OPCODE  = `ALU_OPERATION_SLL;
-                end
-            3'h5://srl //sra
-                begin    
-                if (immediate[11:5] == 7'h00) begin
-                    ALU_OPCODE  = `ALU_OPERATION_SRL;
-                end
-                if (immediate[11:5] == 7'h20) begin
-                    ALU_OPCODE  = `ALU_OPERATION_SRA;
-
-                end
-                end
-            3'h2://slti
-                    //TODO: IMPLEMENT LATER
-                    $finish;
-
-            3'h3://slti
-                    //TODO: IMPLEMENT LATER
-                    $finish;
-
-            default: 
-                $finish;  
-        endcase
-
-        PC_IN_MUX_SEL = 1'b0;
-        RF_WR_EN    = 1'b1;
-        branch_taken = 1'b0;
-
-        ALU_OP_1_MUX_SEL = 1'b1;
-        ALU_OP_2_MUX_SEL = 1'b1;
-        DATA_MEMORY_WR_EN = 1'b0;
-        RF_DATA_IN_MUX_SEL = 2'b01;
-
-    end
-endtask
-
-task processJType(input [31:0] instr    );
-    begin
-        // Implementation for I-Type instructions
-        // ...
-    end
-endtask
-
-task processUType(input [31:0] instr    );
-    begin
-        // Implementation for I-Type instructions
-        // ...
-    end
-endtask
-
-task processBType(input [31:0] instr    );
-    begin
-        // Implementation for I-Type instructions
-        // ...
-    end
-endtask
-
-task processSType(input [31:0] instr    );
-    begin
-        // Implementation for I-Type instructions
-        // ...
-    end
-endtask
 
 endmodule
 

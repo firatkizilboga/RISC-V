@@ -6,12 +6,14 @@ module MUX_2IN_32DATA   (
     );
     reg             [31:0]                              out_reg ;
 
-always @    (in_0, in_1, select ) begin
+always @    (in_0, in_1, select) begin
+   
     case    (select    )
-        1'b0:   out   <= in_0;
-        1'b1:   out   <= in_1;
-        default:    out    <=31'bZ;
+        0:   out   <= in_0;
+        1:   out   <= in_1;
+        default:    out <= 31'bZ;
     endcase
+    
 end
 endmodule
 
@@ -24,13 +26,15 @@ module MUX_3IN_32DATA   (
     );
     reg             [31:0]                              out_reg ;
 
-always @    (in_0, in_1, select ) begin
+always @    (*) begin
     case    (select    )
-        2'b00:  out   <= in_0;
-        2'b01:  out   <= in_1;
-        2'b10:  out   <= in_2;
-        default:    out    <=31'bZ;
+        2'b00:  out = in_0;
+        2'b01:  out = in_1;
+        2'b10:  out = in_2;
+        default:    out = 31'bZ;
     endcase
+	$display("inside the mux3, in0 = %h in1 = %h in2 = %h, sel %b, time = %d", in_0, in_1, in_2,select, $time);
+$display("mux3 out: 0x%h", out);
 end
 
 endmodule

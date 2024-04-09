@@ -7,16 +7,18 @@
 `define ALU_OPERATION_SRL 3'b110
 `define ALU_OPERATION_SRA 3'b111
 module PCINC (
+    input wire clock,
     input wire [31:0] PC,
     output reg [31:0] out
 );
 
 always @(PC) begin
-    out <= out + 32'd4;
+    out = PC + 32'd4;
 end
 
 endmodule
 module ALU (
+    input wire clock,
     input   wire    [2:0]                               opcode  ,
     input   wire    [31:0]                              op_0    ,
     input   wire    [31:0]                              op_1    ,
@@ -27,13 +29,11 @@ module ALU (
     
 
 initial begin
-    out     = 0;
     ZERO    = 1;
     NEGATIVE    = 0;
 end
 
-always @(opcode, op_0, op_1 ) begin
-    
+always @(opcode, op_1, op_0) begin
 
     case (opcode    )
         `ALU_OPERATION_ADD:
@@ -68,6 +68,8 @@ always @(opcode, op_0, op_1 ) begin
     end else begin
         NEGATIVE    <= 0;
     end
+
+    $display("out: 0x%h zero: %b op_1: %b", out, ZERO, NEGATIVE);
 
 end
 
