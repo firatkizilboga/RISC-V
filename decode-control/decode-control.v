@@ -134,7 +134,7 @@ module DecodeControl (
 
   assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE || J_TYPE) ? I_rd : 5'b0;
 
-  assign RF_WR_EN = (R_TYPE) ? 1'b1 : (I_TYPE || LOAD_TYPE) ? 1'b1 : 1'b0;
+  assign RF_WR_EN = (R_TYPE) ? 1'b1 : (I_TYPE || LOAD_TYPE || J_TYPE) ? 1'b1 : 1'b0;
 
   assign RF_DATA_IN_MUX_SEL =   (R_TYPE) ? 2'b01 :
                                 (I_TYPE) ? 2'b01 :

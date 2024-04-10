@@ -12,7 +12,7 @@ module PCINC (
     output reg [31:0] out
 );
 
-  always @(PC) begin
+  always @(negedge clock) begin
     out = PC + 32'd4;
   end
 
