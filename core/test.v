@@ -1,25 +1,22 @@
 `include "core/core.v"
 module top ();
-    reg clock;
-    CORE c(
-        .clock(clock)
-    );
-    reg [31:0] ticks;
-    initial begin
+  reg clock;
+  CORE c (.clock(clock));
+  reg [31:0] ticks;
+  initial begin
 
-        $dumpfile("/Users/firatkizilboga/Debian/output.vcd");
-        $dumpvars(0, c);
-        clock = 0;
-	ticks = 0;
-    end
+    $dumpfile("/Users/firatkizilboga/Debian/output.vcd");
+    $dumpvars(0, c);
+    clock = 0;
+    ticks = 0;
+  end
 
-    always @(clock) begin
-	#60;
-	ticks = ticks + 1;
-        clock <= ~clock;
+  always @(clock) begin
+    #60;
+    ticks = ticks + 1;
+    clock <= ~clock;
 
-	if (ticks == 5)
-	    $finish;
+    if (ticks == 10) $finish;
 
-    end
+  end
 endmodule
