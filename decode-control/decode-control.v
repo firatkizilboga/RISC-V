@@ -91,11 +91,18 @@ module DecodeControl (
     					(I_TYPE && func3 == 3'h5  && I_imm[11: 5] == 7'h20) ? `ALU_OPERATION_SRA :
     					(I_TYPE && func3 == 3'h6) ? `ALU_OPERATION_OR :
     					(I_TYPE && func3 == 3'h7) ? `ALU_OPERATION_AND : 
-                        (LOAD_TYPE) ? `ALU_OPERATION_ADD : 3'b0;
+                        (LOAD_TYPE) ? `ALU_OPERATION_ADD :
+                        (J_TYPE) ? `ALU_OPERATION_ADD : 3'b0;
 
-  assign ALU_OP_1_MUX_SEL = (R_TYPE) ? 1'b1 : (I_TYPE) ? 1'b1 : (LOAD_TYPE) ? 1'b1 : 1'b0;
+  assign ALU_OP_1_MUX_SEL = (R_TYPE) ? 1'b1 :
+                            (I_TYPE) ? 1'b1 :
+                            (LOAD_TYPE) ? 1'b1 :
+                            (J_TYPE) ? 1'b0 : 1'b0;
 
-  assign ALU_OP_2_MUX_SEL = (R_TYPE) ? 1'b0 : (I_TYPE) ? 1'b1 : (LOAD_TYPE) ? 1'b1 : 1'b0;
+  assign ALU_OP_2_MUX_SEL = (R_TYPE) ? 1'b0 :
+                            (I_TYPE) ? 1'b1 :
+                            (LOAD_TYPE) ? 1'b1 :
+                            (J_TYPE) ? 1'b1 : 1'b0;
 
   assign DATA_MEMORY_WR_EN = (S_TYPE) ? 1'b1 : 1'b0;
 
@@ -125,11 +132,14 @@ module DecodeControl (
 
   assign RF_SEL_2 = (R_TYPE) ? R_rs2 : (I_TYPE || LOAD_TYPE) ? 5'b0 : 5'b0;
 
-  assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE) ? I_rd : 5'b0;
+  assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE || J_TYPE) ? I_rd : 5'b0;
 
   assign RF_WR_EN = (R_TYPE) ? 1'b1 : (I_TYPE || LOAD_TYPE) ? 1'b1 : 1'b0;
 
-  assign RF_DATA_IN_MUX_SEL = (R_TYPE) ? 2'b01 : (I_TYPE) ? 2'b01 : (LOAD_TYPE) ? 2'b10 : 2'b00;
+  assign RF_DATA_IN_MUX_SEL =   (R_TYPE) ? 2'b01 :
+                                (I_TYPE) ? 2'b01 :
+                                (LOAD_TYPE) ? 2'b10 : 
+                                (J_TYPE) ? 2'b00 : 2'b00;
 
   assign branch_taken = (B_TYPE) ? 1'b1 : 1'b0;
 
