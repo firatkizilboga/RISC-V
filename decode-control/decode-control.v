@@ -137,8 +137,12 @@ module DecodeControl (
   assign immediate =
             (I_TYPE || LOAD_TYPE || JALR_TYPE) ? { {20{instruction[31]}}, instruction[31:20] } :
             (S_TYPE) ? { {20{instruction[31]}}, instruction[31:25], instruction[11:7] } :
-            (B_TYPE) ? { {19{instruction[31]}}, instruction[31], instruction[7],
-                             instruction[30:25], instruction[11:8], 1'b0 } :
+
+            (B_TYPE && (func3 != 7'h6) && (func3 != 7'h7)) ? 
+                { {19{instruction[31]}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0 } :
+
+            (B_TYPE && ((func3 == 7'h6) || (func3 == 7'h7))) ?
+                { {19{1'b0}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0 } :
 
             (U_TYPE) ? { {12{instruction[31]}}, instruction[31:12] } :
             (J_TYPE) ? { {11{instruction[31]}}, instruction[31], instruction[19:12],
@@ -202,11 +206,4 @@ module BranchControl (
                         (func3 == 3'h6 && reg_1 < reg_2) ? 1'b1 :
                         (func3 == 3'h7 && reg_1 >= reg_2) ? 1'b1 : 1'b0;
 endmodule
-
-
-
-
-
-
-
 
