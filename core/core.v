@@ -32,7 +32,9 @@ module CORE (
 
   DecodeControl DCU (
       .clock(clock),
-      .instruction(IM.data_out)
+      .instruction(IM.data_out),
+      .REG_1(RF.reg_1),
+      .REG_2(RF.reg_2)
   );
 
   Registers RF (
@@ -79,7 +81,7 @@ module CORE (
       .select(DCU.RF_DATA_IN_MUX_SEL)
   );
 
-  always @(clock) begin
+  always @(posedge clock) begin
     $display("############################");
     $display("Time: %d, Clock: %b", $time, clock);
 

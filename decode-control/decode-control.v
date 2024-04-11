@@ -11,9 +11,12 @@
 `define S_TYPE 7'b0100011
 `define LOAD_TYPE 7'b0000011
 
+
 module DecodeControl (
     input wire        clock,
     input wire [31:0] instruction,
+    input wire [31:0] REG_1,
+    input wire [31:0] REG_2,
 
     output wire PC_IN_MUX_SEL,
 
@@ -33,10 +36,8 @@ module DecodeControl (
     output wire [4:0] RF_SEL_1,
     output wire [4:0] RF_SEL_2,
     output wire [4:0] RF_SEL_RD,
-
     output wire       branch_taken,
     output wire [6:0] OPERATION
-
 );
 
   assign OPERATION = instruction[6:0];
@@ -62,9 +63,13 @@ module DecodeControl (
 
   wire [4:0] I_rd, I_rs1, I_rs2;
   wire [11:0] I_imm;
-  assign I_rd = instruction[11:7];
+  assign I_rd  = instruction[11:7];
   assign I_rs1 = instruction[19:15];
   assign I_imm = instruction[31:20];
+
+  wire [4:0] B_rs1, B_rs2;
+  assign B_rs1 = instruction[19:15];
+  assign B_rs2 = instruction[24:20];
 
   //compute the related alu opcode
   // func3 & func7 -> alu opcode (R_TYPE && `ALU_OPERATION_XXX)
@@ -80,19 +85,19 @@ module DecodeControl (
   // 0x7 & 0x0 -> and
   assign ALU_OPCODE =   (R_TYPE && func3 == 3'h0 && R_func7 == 7'h0) ? `ALU_OPERATION_ADD :
                         (R_TYPE && func3 == 3'h0 && R_func7 == 7'h20) ? `ALU_OPERATION_SUB :
-    					(R_TYPE && func3 == 3'h1 && R_func7 == 7'h0) ? `ALU_OPERATION_SLL :
-    					(R_TYPE && func3 == 3'h4 && R_func7 == 7'h0) ? `ALU_OPERATION_XOR :
-    					(R_TYPE && func3 == 3'h5 && R_func7 == 7'h0) ? `ALU_OPERATION_SRL :
-    					(R_TYPE && func3 == 3'h5 && R_func7 == 7'h20) ? `ALU_OPERATION_SRA :
-    					(R_TYPE && func3 == 3'h6 && R_func7 == 7'h0) ? `ALU_OPERATION_OR :
-    					(R_TYPE && func3 == 3'h7 && R_func7 == 7'h0) ? `ALU_OPERATION_AND :
-    					(I_TYPE && func3 == 3'h0) ? `ALU_OPERATION_ADD :
-    					(I_TYPE && func3 == 3'h1 && I_imm[11: 5] == 7'h0) ? `ALU_OPERATION_SLL :
-    					(I_TYPE && func3 == 3'h4) ? `ALU_OPERATION_XOR :
-    					(I_TYPE && func3 == 3'h5  && I_imm[11: 5] == 7'h0) ? `ALU_OPERATION_SRL :
-    					(I_TYPE && func3 == 3'h5  && I_imm[11: 5] == 7'h20) ? `ALU_OPERATION_SRA :
-    					(I_TYPE && func3 == 3'h6) ? `ALU_OPERATION_OR :
-    					(I_TYPE && func3 == 3'h7) ? `ALU_OPERATION_AND : 
+                        (R_TYPE && func3 == 3'h1 && R_func7 == 7'h0) ? `ALU_OPERATION_SLL :
+                        (R_TYPE && func3 == 3'h4 && R_func7 == 7'h0) ? `ALU_OPERATION_XOR :
+                        (R_TYPE && func3 == 3'h5 && R_func7 == 7'h0) ? `ALU_OPERATION_SRL :
+                        (R_TYPE && func3 == 3'h5 && R_func7 == 7'h20) ? `ALU_OPERATION_SRA :
+                        (R_TYPE && func3 == 3'h6 && R_func7 == 7'h0) ? `ALU_OPERATION_OR :
+                        (R_TYPE && func3 == 3'h7 && R_func7 == 7'h0) ? `ALU_OPERATION_AND :
+                        (I_TYPE && func3 == 3'h0) ? `ALU_OPERATION_ADD :
+                        (I_TYPE && func3 == 3'h1 && I_imm[11: 5] == 7'h0) ? `ALU_OPERATION_SLL :
+                        (I_TYPE && func3 == 3'h4) ? `ALU_OPERATION_XOR :
+                        (I_TYPE && func3 == 3'h5  && I_imm[11: 5] == 7'h0) ? `ALU_OPERATION_SRL :
+                        (I_TYPE && func3 == 3'h5  && I_imm[11: 5] == 7'h20) ? `ALU_OPERATION_SRA :
+                        (I_TYPE && func3 == 3'h6) ? `ALU_OPERATION_OR :
+                        (I_TYPE && func3 == 3'h7) ? `ALU_OPERATION_AND :
                         (LOAD_TYPE) ? `ALU_OPERATION_ADD :
                         (J_TYPE || JALR_TYPE) ? `ALU_OPERATION_ADD : 3'b0;
 
@@ -100,19 +105,21 @@ module DecodeControl (
                             (I_TYPE) ? 1'b1 :
                             (LOAD_TYPE) ? 1'b1 :
                             (J_TYPE) ? 1'b0 :
-                            (JALR_TYPE) ? 1'b1 : 1'b0;
+                            (JALR_TYPE) ? 1'b1 :
+                            (B_TYPE) ? 1'b0 : 1'b0;
 
 
   assign ALU_OP_2_MUX_SEL = (R_TYPE) ? 1'b0 :
                             (I_TYPE) ? 1'b1 :
                             (LOAD_TYPE) ? 1'b1 :
                             (J_TYPE) ? 1'b1 :
-                            (JALR_TYPE) ? 1'b1 : 1'b0;
+                            (JALR_TYPE) ? 1'b1 :
+                            (B_TYPE) ? 1'b1 : 1'b0;
 
   assign DATA_MEMORY_WR_EN = (S_TYPE) ? 1'b1 : 1'b0;
 
   // func3 -> data memory size
-  // 0x0 -> byte 
+  // 0x0 -> byte
   // 0x1 -> half word
   // 0x2 -> word
   // 0x4 -> byte (Upper Immediate)
@@ -127,15 +134,22 @@ module DecodeControl (
   assign DATA_MEMORY_SIGN_EXTEND = (LOAD_TYPE && func3 == 3'h4) ? 1'b1 :
                                    (LOAD_TYPE && func3 == 3'h5) ? 1'b1 : 1'b0;
 
-  assign immediate =	(I_TYPE || LOAD_TYPE || JALR_TYPE) ? { {20{instruction[31]}}, instruction[31:20] } :
-				        (S_TYPE) ? { {20{instruction[31]}}, instruction[31:25], instruction[11:7] } :
-				        (B_TYPE) ? { {19{instruction[31]}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0 } :
-				        (U_TYPE) ? { {12{instruction[31]}}, instruction[31:12] } :
-				        (J_TYPE) ? { {11{instruction[31]}}, instruction[31], instruction[19:12], instruction[20], instruction[30:21], 1'b0 } : 32'b0;
+  assign immediate =
+            (I_TYPE || LOAD_TYPE || JALR_TYPE) ? { {20{instruction[31]}}, instruction[31:20] } :
+            (S_TYPE) ? { {20{instruction[31]}}, instruction[31:25], instruction[11:7] } :
+            (B_TYPE) ? { {19{instruction[31]}}, instruction[31], instruction[7],
+                             instruction[30:25], instruction[11:8], 1'b0 } :
 
-  assign RF_SEL_1 = (R_TYPE) ? R_rs1 : (I_TYPE || LOAD_TYPE || JALR_TYPE) ? I_rs1 : 5'b0;
+            (U_TYPE) ? { {12{instruction[31]}}, instruction[31:12] } :
+            (J_TYPE) ? { {11{instruction[31]}}, instruction[31], instruction[19:12],
+                             instruction[20], instruction[30:21], 1'b0 } : 32'b0;
 
-  assign RF_SEL_2 = (R_TYPE) ? R_rs2 : (I_TYPE || LOAD_TYPE) ? 5'b0 : 5'b0;
+
+  assign RF_SEL_1 = (R_TYPE) ? R_rs1 :
+                    (I_TYPE || LOAD_TYPE || JALR_TYPE) ? I_rs1 :
+                    (B_TYPE) ? B_rs1 : 5'b0;
+
+  assign RF_SEL_2 = (R_TYPE) ? R_rs2 : (I_TYPE || LOAD_TYPE) ? 5'b0 : (B_TYPE) ? B_rs2 : 5'b0;
 
   assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE || J_TYPE || JALR_TYPE) ? I_rd : 5'b0;
 
@@ -144,11 +158,18 @@ module DecodeControl (
   assign RF_DATA_IN_MUX_SEL =   (R_TYPE) ? 2'b01 :
                                 (I_TYPE) ? 2'b01 :
                                 (LOAD_TYPE) ? 2'b10 :
-                                (J_TYPE || JALR_TYPE) ? 2'b00 : 2'b00;
+                                (J_TYPE || JALR_TYPE) ? 2'b00 :
+                                (B_TYPE) ? 2'b01 : 2'b00;
 
-  assign branch_taken = (B_TYPE) ? 1'b1 : 1'b0;
+  BranchControl BC (
+      .reg_1(REG_1),
+      .reg_2(REG_2),
+      .func3(func3)
+  );
 
-  assign PC_IN_MUX_SEL = (J_TYPE || JALR_TYPE) ? 1'b1 : 1'b0;
+  assign branch_taken  = B_TYPE & BC.branch_taken;
+
+  assign PC_IN_MUX_SEL = (J_TYPE || JALR_TYPE || branch_taken) ? 1'b1 : 1'b0;
 
   always @(instruction) begin
     #4;
@@ -161,13 +182,26 @@ module DecodeControl (
     $display("U_TYPE: %b", U_TYPE);
     $display("LOAD TYPE: %b", LOAD_TYPE);
     $display("JALR TYPE: %b", JALR_TYPE);
+    $display("B_TYPE: %b", B_TYPE);
   end
 
 endmodule
 
+module BranchControl (
+    input wire [31:0] reg_1,
+    input wire [31:0] reg_2,
+    input wire [ 2:0] func3,
 
+    output wire branch_taken
+);
 
-
+  assign branch_taken = (func3 == 3'h0 && reg_1 == reg_2) ? 1'b1 :
+                        (func3 == 3'h1 && reg_1 != reg_2) ? 1'b1 :
+                        (func3 == 3'h4 && reg_1 < reg_2) ? 1'b1 :
+                        (func3 == 3'h5 && reg_1 >= reg_2) ? 1'b1 :
+                        (func3 == 3'h6 && reg_1 < reg_2) ? 1'b1 :
+                        (func3 == 3'h7 && reg_1 >= reg_2) ? 1'b1 : 1'b0;
+endmodule
 
 
 
