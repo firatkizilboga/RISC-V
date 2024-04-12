@@ -16,7 +16,8 @@ module top ();
     ticks = ticks + 1;
     clock <= ~clock;
 
-    if (ticks == 24) $finish;
-
+    if (ticks == 100) begin
+      $finish;
+    end
   end
 endmodule

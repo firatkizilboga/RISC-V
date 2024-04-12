@@ -75,7 +75,7 @@ module INSTRUCTION_MEMORY (
     output reg [31:0] data_out  // Data output for read operations
 );
 
-  reg [7:0] mem_array[0:48];
+  reg [7:0] mem_array[0:1024];
   always @(negedge clock) begin
     $display("addr: 0x%h", addr);
 

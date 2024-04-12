@@ -1,6 +1,8 @@
 module Registers (
     input  wire        clock,
     input  wire        WR_EN,
+    input  wire        SET,
+    input  wire        RESET,
     input  wire [ 4:0] reg_1_select,
     input  wire [ 4:0] reg_2_select,
     input  wire [31:0] data_in,
@@ -29,10 +31,19 @@ module Registers (
   end
 
   always @(negedge clock) begin
+    $display("write select %h", write_select);
+    $display("data in %h", data_in);
+    $display("set %h", SET);
+    $display("reset %h", RESET);
+    if (SET) begin
+      registers[write_select] = 32'b1;
+    end
+
+    if (RESET) begin
+      registers[write_select] = 32'b0;
+    end
+
     if (WR_EN && (write_select != 5'd0)) begin
-      $display("$$$$$$$$$$$$$$$$$$$$$");
-      $display("Writing to register %d, %d", write_select, $time);
-      $display("Writing value 0x%h", data_in);
       registers[write_select] = data_in;
     end
     print_regs();
@@ -43,7 +54,7 @@ module Registers (
   task print_regs;
     begin
       for (integer i = 0; i < 32; i = i + 1) begin
-        $display("Register %d: 0x%h", i, registers[i]);
+        $display("Register %d: %d", i, registers[i]);
       end
     end
   endtask

@@ -24,7 +24,10 @@ module DecodeControl (
     output wire       ALU_OP_2_MUX_SEL,
     output wire [2:0] ALU_OPCODE,
 
-    output wire       RF_WR_EN,
+    output wire RF_WR_EN,
+    output wire RF_SET,
+    output wire RF_RESET,
+
     output wire [1:0] RF_DATA_IN_MUX_SEL,
 
     output wire DATA_MEMORY_WR_EN,
@@ -122,8 +125,8 @@ module DecodeControl (
   // 0x0 -> byte
   // 0x1 -> half word
   // 0x2 -> word
-  // 0x4 -> byte (Upper Immediate)
-  // 0x5 -> half word (Upper Immediate)
+  // 0x4 -> byte (Unsigned)
+  // 0x5 -> half word (Unsigned)
 
   assign DATA_MEMORY_SIZE_SEL = (LOAD_TYPE && func3 == 3'h0) ? 2'd0 :
                                 (LOAD_TYPE && func3 == 3'h1) ? 2'd1 :
@@ -133,7 +136,6 @@ module DecodeControl (
 
   assign DATA_MEMORY_SIGN_EXTEND = (LOAD_TYPE && func3 == 3'h4) ? 1'b1 :
                                    (LOAD_TYPE && func3 == 3'h5) ? 1'b1 : 1'b0;
-
   assign immediate =
             (I_TYPE || LOAD_TYPE || JALR_TYPE) ? { {20{instruction[31]}}, instruction[31:20] } :
             (S_TYPE) ? { {20{instruction[31]}}, instruction[31:25], instruction[11:7] } :
@@ -146,8 +148,7 @@ module DecodeControl (
 
             (U_TYPE) ? { {12{instruction[31]}}, instruction[31:12] } :
             (J_TYPE) ? { {11{instruction[31]}}, instruction[31], instruction[19:12],
-                             instruction[20], instruction[30:21], 1'b0 } : 32'b0;
-
+                             instruction[20], instruction[30:21], 1'b0 } :32'b0;
 
   assign RF_SEL_1 = (R_TYPE) ? R_rs1 :
                     (I_TYPE || LOAD_TYPE || JALR_TYPE) ? I_rs1 :
@@ -157,14 +158,26 @@ module DecodeControl (
 
   assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE || J_TYPE || JALR_TYPE) ? I_rd : 5'b0;
 
-  assign RF_WR_EN = (R_TYPE) ? 1'b1 : (I_TYPE || LOAD_TYPE || J_TYPE || JALR_TYPE) ? 1'b1 : 1'b0;
+  assign RF_WR_EN = (R_TYPE && func3 != 7'h2 && func3 != 7'h3) ? 1'b1 :
+                    ((I_TYPE && func3 !=7'h2 && func3 != 7'h3)) || (LOAD_TYPE || J_TYPE || JALR_TYPE) ? 1'b1 : 1'b0;
+
+  assign SLT_CONDITION = ($signed(REG_1) < $signed(REG_2)) ? 1'b1 : 1'b0;
+  assign SLT_CONDITION_U = (REG_1 < REG_2) ? 1'b1 : 1'b0;
+
+  assign SLTI_CONDITION = ($signed(REG_1) < $signed(immediate)) ? 1'b1 : 1'b0;
+  assign SLTI_CONDITION_U = (REG_1 < immediate) ? 1'b1 : 1'b0;
+
+  assign RF_SET = (R_TYPE && ((func3 == 7'h2 && SLT_CONDITION) || ((func3 == 7'h3 && SLT_CONDITION_U)))) ||
+                    (I_TYPE && ((func3 == 7'h2 && SLTI_CONDITION) || ((func3 == 7'h3 && SLTI_CONDITION_U)))) ? 1'b1 : 1'b0;
+
+  assign RF_RESET = (R_TYPE && ((func3 == 7'h2 && ~SLT_CONDITION) || ((func3 == 7'h3 && ~SLT_CONDITION_U)))) ||
+                    (I_TYPE && ((func3 == 7'h2 && ~SLTI_CONDITION) || ((func3 == 7'h3 && ~SLTI_CONDITION_U)))) ? 1'b1 : 1'b0;
 
   assign RF_DATA_IN_MUX_SEL =   (R_TYPE) ? 2'b01 :
                                 (I_TYPE) ? 2'b01 :
                                 (LOAD_TYPE) ? 2'b10 :
                                 (J_TYPE || JALR_TYPE) ? 2'b00 :
                                 (B_TYPE) ? 2'b01 : 2'b00;
-
   BranchControl BC (
       .reg_1(REG_1),
       .reg_2(REG_2),
@@ -201,9 +214,15 @@ module BranchControl (
 
   assign branch_taken = (func3 == 3'h0 && reg_1 == reg_2) ? 1'b1 :
                         (func3 == 3'h1 && reg_1 != reg_2) ? 1'b1 :
-                        (func3 == 3'h4 && reg_1 < reg_2) ? 1'b1 :
-                        (func3 == 3'h5 && reg_1 >= reg_2) ? 1'b1 :
-                        (func3 == 3'h6 && reg_1 < reg_2) ? 1'b1 :
-                        (func3 == 3'h7 && reg_1 >= reg_2) ? 1'b1 : 1'b0;
+                        (func3 == 3'h4 && $signed(
+      reg_1
+  ) < $signed(
+      reg_2
+  )) ? 1'b1 : (func3 == 3'h5 && $signed(
+      reg_1
+  ) >= $signed(
+      reg_2
+  )) ? 1'b1 : (func3 == 3'h6 && reg_1 < reg_2) ?
+      1'b1 : (func3 == 3'h7 && reg_1 >= reg_2) ? 1'b1 : 1'b0;
 endmodule
 

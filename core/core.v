@@ -40,6 +40,8 @@ module CORE (
   Registers RF (
       .clock(clock),
       .WR_EN(DCU.RF_WR_EN),
+      .SET(DCU.RF_SET),
+      .RESET(DCU.RF_RESET),
       .reg_1_select(DCU.RF_SEL_1),
       .reg_2_select(DCU.RF_SEL_2),
       .data_in(RF_DATA_IN_MUX.out),
