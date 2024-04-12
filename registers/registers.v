@@ -54,7 +54,7 @@ module Registers (
   task print_regs;
     begin
       for (integer i = 0; i < 32; i = i + 1) begin
-        $display("Register %d: %d", i, registers[i]);
+        $display("Register x%d: x%h", i, registers[i]);
       end
     end
   endtask

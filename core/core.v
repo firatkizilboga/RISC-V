@@ -98,7 +98,7 @@ module CORE (
     $display("PCNext.PC: %h", PCNext.PC);
 
     // Displaying outputs of Instruction Memory
-    $display("IM.data_out: %h", IM.data_out);
+    $display("IM.data_out: 0x%h", IM.data_out);
 
     // Displaying control signals from DecodeControl Unit (DCU)
     $display("DCU.PC_IN_MUX_SEL: %b", DCU.PC_IN_MUX_SEL);
@@ -110,7 +110,7 @@ module CORE (
     $display("DCU.ALU_OP_1_MUX_SEL: %b", DCU.ALU_OP_1_MUX_SEL);
     $display("DCU.ALU_OP_2_MUX_SEL: %b", DCU.ALU_OP_2_MUX_SEL);
     $display("DCU.ALU_OPCODE: %h", DCU.ALU_OPCODE);
-    $display("DCU.immediate: %h", DCU.immediate);
+    $display("DCU.immediate: 0x%h", DCU.immediate);
     $display("DCU.DATA_MEMORY_WR_EN: %b", DCU.DATA_MEMORY_WR_EN);
     $display("DCU.DATA_MEMORY_SIZE_SEL: %h", DCU.DATA_MEMORY_SIZE_SEL);
     $display("DCU.DATA_MEMORY_SIGN_EXTEND: %b", DCU.DATA_MEMORY_SIGN_EXTEND);

@@ -33,7 +33,7 @@ module ALU (
     NEGATIVE    = 0;
   end
 
-  always @(opcode, op_1, op_0) begin
+  always @(posedge clock) begin
 
     case (opcode)
       `ALU_OPERATION_ADD: out = op_0 + op_1;

@@ -10,6 +10,8 @@
 `define B_TYPE 7'b1100011
 `define S_TYPE 7'b0100011
 `define LOAD_TYPE 7'b0000011
+`define LUI_TYPE 7'b0110111
+`define AUIPC_TYPE 7'b0010111
 
 
 module DecodeControl (
@@ -52,6 +54,8 @@ module DecodeControl (
   assign B_TYPE = (instruction[6:0] == `B_TYPE);
   assign S_TYPE = (instruction[6:0] == `S_TYPE);
   assign LOAD_TYPE = (instruction[6:0] == `LOAD_TYPE);
+  assign LUI_TYPE = (instruction[6:0] == `LUI_TYPE);
+  assign AUIPC_TYPE = (instruction[6:0] == `AUIPC_TYPE);
 
 
   wire [2:0] func3;
@@ -109,7 +113,9 @@ module DecodeControl (
                             (LOAD_TYPE) ? 1'b1 :
                             (J_TYPE) ? 1'b0 :
                             (JALR_TYPE) ? 1'b1 :
-                            (B_TYPE) ? 1'b0 : 1'b0;
+                            (B_TYPE) ? 1'b0 :
+                            (LUI_TYPE) ? 1'b1 :
+                            (AUIPC_TYPE) ? 1'b0 : 1'b0;
 
 
   assign ALU_OP_2_MUX_SEL = (R_TYPE) ? 1'b0 :
@@ -117,7 +123,9 @@ module DecodeControl (
                             (LOAD_TYPE) ? 1'b1 :
                             (J_TYPE) ? 1'b1 :
                             (JALR_TYPE) ? 1'b1 :
-                            (B_TYPE) ? 1'b1 : 1'b0;
+                            (B_TYPE) ? 1'b1 :
+                            (LUI_TYPE) ? 1'b1 :
+                            (AUIPC_TYPE) ? 1'b1 : 1'b0;
 
   assign DATA_MEMORY_WR_EN = (S_TYPE) ? 1'b1 : 1'b0;
 
@@ -136,30 +144,37 @@ module DecodeControl (
 
   assign DATA_MEMORY_SIGN_EXTEND = (LOAD_TYPE && func3 == 3'h4) ? 1'b1 :
                                    (LOAD_TYPE && func3 == 3'h5) ? 1'b1 : 1'b0;
+
   assign immediate =
-            (I_TYPE || LOAD_TYPE || JALR_TYPE) ? { {20{instruction[31]}}, instruction[31:20] } :
-            (S_TYPE) ? { {20{instruction[31]}}, instruction[31:25], instruction[11:7] } :
+    (I_TYPE || LOAD_TYPE || JALR_TYPE) ? { {20{instruction[31]}}, instruction[31:20] } :
+    (S_TYPE) ? { {20{instruction[31]}}, instruction[31:25], instruction[11:7] } :
 
-            (B_TYPE && (func3 != 7'h6) && (func3 != 7'h7)) ? 
-                { {19{instruction[31]}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0 } :
+    (B_TYPE && (func3 != 7'h6) && (func3 != 7'h7)) ? 
+        { {19{instruction[31]}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0 } :
 
-            (B_TYPE && ((func3 == 7'h6) || (func3 == 7'h7))) ?
-                { {19{1'b0}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0 } :
+    (B_TYPE && ((func3 == 7'h6) || (func3 == 7'h7))) ?
+        { {19{1'b0}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0 } :
 
-            (U_TYPE) ? { {12{instruction[31]}}, instruction[31:12] } :
-            (J_TYPE) ? { {11{instruction[31]}}, instruction[31], instruction[19:12],
-                             instruction[20], instruction[30:21], 1'b0 } :32'b0;
+    (LUI_TYPE || AUIPC_TYPE) ? { instruction[31:12], 12'b0 } :
+
+    (J_TYPE) ? { {11{instruction[31]}}, instruction[31], instruction[19:12],
+                 instruction[20], instruction[30:21], 1'b0 } :
+    32'b0;
 
   assign RF_SEL_1 = (R_TYPE) ? R_rs1 :
                     (I_TYPE || LOAD_TYPE || JALR_TYPE) ? I_rs1 :
-                    (B_TYPE) ? B_rs1 : 5'b0;
+                    (B_TYPE) ? B_rs1 :
+                    (LUI_TYPE) ? 5'b0 : 5'b0;
 
   assign RF_SEL_2 = (R_TYPE) ? R_rs2 : (I_TYPE || LOAD_TYPE) ? 5'b0 : (B_TYPE) ? B_rs2 : 5'b0;
 
-  assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE || J_TYPE || JALR_TYPE) ? I_rd : 5'b0;
+  assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE || J_TYPE || JALR_TYPE || LUI_TYPE || AUIPC_TYPE) ? I_rd : 5'b0;
+  assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE || J_TYPE || JALR_TYPE || LUI_TYPE || AUIPC_TYPE) ? I_rd : 5'b0;
 
   assign RF_WR_EN = (R_TYPE && func3 != 7'h2 && func3 != 7'h3) ? 1'b1 :
-                    ((I_TYPE && func3 !=7'h2 && func3 != 7'h3)) || (LOAD_TYPE || J_TYPE || JALR_TYPE) ? 1'b1 : 1'b0;
+                    ((I_TYPE && func3 !=7'h2 && func3 != 7'h3)) ||
+                    (LOAD_TYPE || J_TYPE || JALR_TYPE) ? 1'b1 :
+                    (LUI_TYPE || AUIPC_TYPE) ? 1'b1 : 1'b0;
 
   assign SLT_CONDITION = ($signed(REG_1) < $signed(REG_2)) ? 1'b1 : 1'b0;
   assign SLT_CONDITION_U = (REG_1 < REG_2) ? 1'b1 : 1'b0;
@@ -167,17 +182,22 @@ module DecodeControl (
   assign SLTI_CONDITION = ($signed(REG_1) < $signed(immediate)) ? 1'b1 : 1'b0;
   assign SLTI_CONDITION_U = (REG_1 < immediate) ? 1'b1 : 1'b0;
 
-  assign RF_SET = (R_TYPE && ((func3 == 7'h2 && SLT_CONDITION) || ((func3 == 7'h3 && SLT_CONDITION_U)))) ||
-                    (I_TYPE && ((func3 == 7'h2 && SLTI_CONDITION) || ((func3 == 7'h3 && SLTI_CONDITION_U)))) ? 1'b1 : 1'b0;
+  assign RF_SET =   (R_TYPE && ((func3 == 7'h2 && SLT_CONDITION) ||
+                    ((func3 == 7'h3 && SLT_CONDITION_U)))) ||
+                    (I_TYPE && ((func3 == 7'h2 && SLTI_CONDITION) ||
+                    ((func3 == 7'h3 && SLTI_CONDITION_U)))) ? 1'b1 : 1'b0;
 
-  assign RF_RESET = (R_TYPE && ((func3 == 7'h2 && ~SLT_CONDITION) || ((func3 == 7'h3 && ~SLT_CONDITION_U)))) ||
-                    (I_TYPE && ((func3 == 7'h2 && ~SLTI_CONDITION) || ((func3 == 7'h3 && ~SLTI_CONDITION_U)))) ? 1'b1 : 1'b0;
+  assign RF_RESET = (R_TYPE && ((func3 == 7'h2 && ~SLT_CONDITION) ||
+                    ((func3 == 7'h3 && ~SLT_CONDITION_U)))) ||
+                    (I_TYPE && ((func3 == 7'h2 && ~SLTI_CONDITION) ||
+                    ((func3 == 7'h3 && ~SLTI_CONDITION_U)))) ? 1'b1 : 1'b0;
 
   assign RF_DATA_IN_MUX_SEL =   (R_TYPE) ? 2'b01 :
                                 (I_TYPE) ? 2'b01 :
                                 (LOAD_TYPE) ? 2'b10 :
                                 (J_TYPE || JALR_TYPE) ? 2'b00 :
-                                (B_TYPE) ? 2'b01 : 2'b00;
+                                (B_TYPE) ? 2'b01 :
+                                (LUI_TYPE || AUIPC_TYPE) ? 2'b01 : 2'b00;
   BranchControl BC (
       .reg_1(REG_1),
       .reg_2(REG_2),
@@ -200,6 +220,9 @@ module DecodeControl (
     $display("LOAD TYPE: %b", LOAD_TYPE);
     $display("JALR TYPE: %b", JALR_TYPE);
     $display("B_TYPE: %b", B_TYPE);
+    $display("S_TYPE: %b", S_TYPE);
+    $display("LUI_TYPE: %b", LUI_TYPE);
+    $display("AUIPC_TYPE: %b", AUIPC_TYPE);
   end
 
 endmodule
@@ -225,4 +248,3 @@ module BranchControl (
   )) ? 1'b1 : (func3 == 3'h6 && reg_1 < reg_2) ?
       1'b1 : (func3 == 3'h7 && reg_1 >= reg_2) ? 1'b1 : 1'b0;
 endmodule
-
