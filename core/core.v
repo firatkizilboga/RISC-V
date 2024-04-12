@@ -69,6 +69,7 @@ module CORE (
   );
 
   DATA_MEMORY DM (
+      .clock      (clock),
       .addr       (ALU_32.out),
       .data_in    (RF.reg_2),
       .we         (DCU.DATA_MEMORY_WR_EN),

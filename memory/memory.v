@@ -1,4 +1,5 @@
 module DATA_MEMORY (
+    input wire clock,
     input wire [31:0] addr,  // Address input
     input wire [31:0] data_in,  // Data input for write operations
     input wire we,  // Write enable
@@ -8,36 +9,41 @@ module DATA_MEMORY (
 );
 
   // Memory array
-  reg [7:0] mem_array[0:7];
+  reg [7:0] mem_array[0:20];
 
+  
 
-  always @(addr, data_in, data_out, we, size) begin
+  always @(negedge clock) begin
     if (we) begin
+      $display("DATA MEMORY WRITE addr: 0x%h", addr);
+      $display("data_in: 0x%h", data_in);
       case (size)
         2'd0: mem_array[addr] = data_in[7:0];
         2'd1: begin
-          mem_array[addr+1] = data_in[15:8];
-          mem_array[addr]   = data_in[7:0];
+          mem_array[addr] = data_in[15:8];
+          mem_array[addr+1]   = data_in[7:0];
         end
         2'd2: begin
-          mem_array[addr+2] = data_in[23:16];
+          mem_array[addr] = data_in[23:16];
           mem_array[addr+1] = data_in[15:8];
-          mem_array[addr]   = data_in[7:0];
+          mem_array[addr+2]   = data_in[7:0];
         end
         2'd3: begin
-          mem_array[addr+3] = data_in[31:24];
-          mem_array[addr+2] = data_in[23:16];
-          mem_array[addr+1] = data_in[15:8];
-          mem_array[addr]   = data_in[7:0];
-        end
-        default: begin
-          mem_array[addr+3] = data_in[31:24];
-          mem_array[addr+2] = data_in[23:16];
-          mem_array[addr+1] = data_in[15:8];
-          mem_array[addr]   = data_in[7:0];
+          mem_array[addr] = data_in[31:24];
+          mem_array[addr+1] = data_in[23:16];
+          mem_array[addr+2] = data_in[15:8];
+          mem_array[addr+3]   = data_in[7:0];
+        end      default: begin
+          mem_array[addr] = data_in[31:24];
+          mem_array[addr+1] = data_in[23:16];
+          mem_array[addr+2] = data_in[15:8];
+          mem_array[addr+3]   = data_in[7:0];
         end
       endcase
     end
+    memdump();
+  end
+  always @(*) begin
     case (size)
       2'd0: begin
         if (sign_extend && mem_array[addr][7]) data_out = {24'hFFFFFF, mem_array[addr]};
@@ -57,7 +63,7 @@ module DATA_MEMORY (
       default:
       data_out = {mem_array[addr], mem_array[addr+1], mem_array[addr+2], mem_array[addr+3]};
     endcase
-
+    
   end
 
   // Initial block to load memory from a file
@@ -65,6 +71,14 @@ module DATA_MEMORY (
     $readmemh("memory/data.mem",
               mem_array);  // Replace "memory_file.mem" with your variable file name
   end
+
+task memdump;
+    begin
+      for (integer i = 0; i < 20; i = i + 1) begin
+        $display("memor[0x%h] -> 0x%h", i, mem_array[i]);
+      end
+    end
+  endtask
 
 endmodule
 

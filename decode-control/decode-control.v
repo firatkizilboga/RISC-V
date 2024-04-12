@@ -106,7 +106,8 @@ module DecodeControl (
                         (I_TYPE && func3 == 3'h6) ? `ALU_OPERATION_OR :
                         (I_TYPE && func3 == 3'h7) ? `ALU_OPERATION_AND :
                         (LOAD_TYPE) ? `ALU_OPERATION_ADD :
-                        (J_TYPE || JALR_TYPE) ? `ALU_OPERATION_ADD : 3'b0;
+                        (J_TYPE || JALR_TYPE) ? `ALU_OPERATION_ADD :
+                        (S_TYPE) ? `ALU_OPERATION_ADD: 3'b0;
 
   assign ALU_OP_1_MUX_SEL = (R_TYPE) ? 1'b1 :
                             (I_TYPE) ? 1'b1 :
@@ -115,7 +116,8 @@ module DecodeControl (
                             (JALR_TYPE) ? 1'b1 :
                             (B_TYPE) ? 1'b0 :
                             (LUI_TYPE) ? 1'b1 :
-                            (AUIPC_TYPE) ? 1'b0 : 1'b0;
+                            (AUIPC_TYPE) ? 1'b0 :
+                            (S_TYPE) ? 1'b1 : 1'b0;
 
 
   assign ALU_OP_2_MUX_SEL = (R_TYPE) ? 1'b0 :
@@ -125,7 +127,8 @@ module DecodeControl (
                             (JALR_TYPE) ? 1'b1 :
                             (B_TYPE) ? 1'b1 :
                             (LUI_TYPE) ? 1'b1 :
-                            (AUIPC_TYPE) ? 1'b1 : 1'b0;
+                            (AUIPC_TYPE) ? 1'b1 :
+                            (S_TYPE) ? 1'b1: 1'b0;
 
   assign DATA_MEMORY_WR_EN = (S_TYPE) ? 1'b1 : 1'b0;
 
@@ -136,14 +139,15 @@ module DecodeControl (
   // 0x4 -> byte (Unsigned)
   // 0x5 -> half word (Unsigned)
 
-  assign DATA_MEMORY_SIZE_SEL = (LOAD_TYPE && func3 == 3'h0) ? 2'd0 :
-                                (LOAD_TYPE && func3 == 3'h1) ? 2'd1 :
-                                (LOAD_TYPE && func3 == 3'h2) ? 2'd3 :
+  assign DATA_MEMORY_SIZE_SEL = ((LOAD_TYPE || S_TYPE) && func3 == 3'h0) ? 2'd0 :
+                                ((LOAD_TYPE || S_TYPE) && func3 == 3'h1) ? 2'd1 :
+                                ((LOAD_TYPE || S_TYPE) && func3 == 3'h2) ? 2'd3 :
                                 (LOAD_TYPE && func3 == 3'h4) ? 2'd0 :
                                 (LOAD_TYPE && func3 == 3'h5) ? 2'd1 : 2'd3;
 
   assign DATA_MEMORY_SIGN_EXTEND = (LOAD_TYPE && func3 == 3'h4) ? 1'b1 :
-                                   (LOAD_TYPE && func3 == 3'h5) ? 1'b1 : 1'b0;
+                                   (LOAD_TYPE && func3 == 3'h5) ? 1'b1 :
+                                   (S_TYPE) ? 1'b1 : 1'b0;
 
   assign immediate =
     (I_TYPE || LOAD_TYPE || JALR_TYPE) ? { {20{instruction[31]}}, instruction[31:20] } :
@@ -161,14 +165,13 @@ module DecodeControl (
                  instruction[20], instruction[30:21], 1'b0 } :
     32'b0;
 
-  assign RF_SEL_1 = (R_TYPE) ? R_rs1 :
+  assign RF_SEL_1 = (R_TYPE || S_TYPE) ? R_rs1 :
                     (I_TYPE || LOAD_TYPE || JALR_TYPE) ? I_rs1 :
                     (B_TYPE) ? B_rs1 :
                     (LUI_TYPE) ? 5'b0 : 5'b0;
 
-  assign RF_SEL_2 = (R_TYPE) ? R_rs2 : (I_TYPE || LOAD_TYPE) ? 5'b0 : (B_TYPE) ? B_rs2 : 5'b0;
+  assign RF_SEL_2 = (R_TYPE || S_TYPE) ? R_rs2 : (I_TYPE || LOAD_TYPE) ? 5'b0 : (B_TYPE) ? B_rs2 : 5'b0;
 
-  assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE || J_TYPE || JALR_TYPE || LUI_TYPE || AUIPC_TYPE) ? I_rd : 5'b0;
   assign RF_SEL_RD = (R_TYPE) ? R_rd : (I_TYPE || LOAD_TYPE || J_TYPE || JALR_TYPE || LUI_TYPE || AUIPC_TYPE) ? I_rd : 5'b0;
 
   assign RF_WR_EN = (R_TYPE && func3 != 7'h2 && func3 != 7'h3) ? 1'b1 :
