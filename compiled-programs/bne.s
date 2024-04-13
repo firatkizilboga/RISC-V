@@ -10,7 +10,7 @@ _start:
     add x3, x1, x2     # x3 = x1 + x2, should be 15
 
     # Use BNE
-    addi x4, x0, 14    # x4 = 15, for comparison
+    addi x4, x0, 14    #4 = 15, for comparison
     bne x3, x4, branch_taken # If x3 != x4, branch to branch_taken
 
     # If no branch, place a distinct operation

@@ -27,6 +27,5 @@ _start:
     lb x22, 6(x0)  # Load the byte stored
 end:
     # Here you might want to halt the processor or loop indefinitely jump and link using register 0
-    nop
     j end
 
