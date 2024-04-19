@@ -1,3 +1,5 @@
+`ifndef REGISTER
+`define REGISTER
 module Register #(
     parameter size = 32
 ) (
@@ -16,3 +18,4 @@ module Register #(
 
 endmodule
 
+`endif 

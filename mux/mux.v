@@ -1,3 +1,5 @@
+`ifndef MUX
+`define MUX
 module MUX_2IN_32DATA (
     input  wire [31:0] in_0,
     input  wire [31:0] in_1,
@@ -40,4 +42,4 @@ module MUX_3IN_32DATA (
 
 endmodule
 
-
+`endif

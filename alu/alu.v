@@ -1,3 +1,6 @@
+`ifndef ALU
+`define ALU
+
 `define ALU_OPERATION_ADD 3'b000
 `define ALU_OPERATION_SUB 3'b001
 `define ALU_OPERATION_AND 3'b010
@@ -6,6 +9,7 @@
 `define ALU_OPERATION_SLL 3'b101
 `define ALU_OPERATION_SRL 3'b110
 `define ALU_OPERATION_SRA 3'b111
+
 module PCINC (
     input wire clock,
     input wire [31:0] PC,
@@ -66,3 +70,4 @@ module ALU (
 
 
 endmodule
+`endif

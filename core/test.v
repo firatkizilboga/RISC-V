@@ -5,7 +5,7 @@ module top ();
   reg [31:0] ticks;
   initial begin
 
-    $dumpfile("/Users/firatkizilboga/Debian/output.vcd");
+    $dumpfile("./output.vcd");
     $dumpvars(0, c);
     clock = 0;
     ticks = 0;

@@ -1,6 +1,6 @@
-`ifndef ALU_OPERATION_ADD
+`ifndef DECODE_CONTROL
+`define DECODE_CONTROL
 `include "alu/alu.v"
-`endif
 
 `define R_TYPE 7'b0110011
 `define I_TYPE 7'b0010011
@@ -201,13 +201,15 @@ module DecodeControl (
                                 (J_TYPE || JALR_TYPE) ? 2'b00 :
                                 (B_TYPE) ? 2'b01 :
                                 (LUI_TYPE || AUIPC_TYPE) ? 2'b01 : 2'b00;
+  wire BC__branch_taken;
   BranchControl BC (
       .reg_1(REG_1),
       .reg_2(REG_2),
-      .func3(func3)
+      .func3(func3),
+      .branch_taken(BC__branch_taken)
   );
 
-  assign branch_taken  = B_TYPE & BC.branch_taken;
+  assign branch_taken  = B_TYPE & 	BC__branch_taken;
 
   assign PC_IN_MUX_SEL = (J_TYPE || JALR_TYPE || branch_taken) ? 1'b1 : 1'b0;
 
@@ -251,3 +253,4 @@ module BranchControl (
   )) ? 1'b1 : (func3 == 3'h6 && reg_1 < reg_2) ?
       1'b1 : (func3 == 3'h7 && reg_1 >= reg_2) ? 1'b1 : 1'b0;
 endmodule
+`endif
