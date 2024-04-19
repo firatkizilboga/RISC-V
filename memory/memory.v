@@ -1,3 +1,5 @@
+`ifndef DAT_MEM
+`define DAT_MEM
 module DATA_MEMORY (
     input wire clock,
     input wire [31:0] addr,  // Address input
@@ -10,8 +12,6 @@ module DATA_MEMORY (
 
   // Memory array
   reg [7:0] mem_array[0:20];
-
-  
 
   always @(negedge clock) begin
     if (we) begin
@@ -71,10 +71,12 @@ module DATA_MEMORY (
     $readmemh("memory/data.mem",
               mem_array);  // Replace "memory_file.mem" with your variable file name
   end
-
+  
+integer i;
 task memdump;
+
     begin
-      for (integer i = 0; i < 20; i = i + 1) begin
+      for (i = 0; i < 20; i = i + 1) begin
         $display("memor[0x%h] -> 0x%h", i, mem_array[i]);
       end
     end
@@ -110,3 +112,4 @@ module INSTRUCTION_MEMORY (
               mem_array);  // Replace "memory_file.mem" with your variable file name
   end
 endmodule
+`endif
