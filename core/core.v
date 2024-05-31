@@ -84,7 +84,7 @@ module CORE (
       .select(DCU.RF_DATA_IN_MUX_SEL)
   );
 
-  always @(posedge clock) begin
+  always @(negedge clock) begin
     $display("############################");
     $display("Time: %d, Clock: %b", $time, clock);
 

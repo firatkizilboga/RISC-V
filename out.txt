@@ -1,0 +1,5046 @@
+Compiling and running core...
+iverilog -o build/core-test.vvp core/test.v
+vvp build/core-test.vvp
+WARNING: ./memory/memory.v:194: $readmemh(memory/data.mem): Not enough words in the file for the requested range [0:70].
+WARNING: ./memory/memory.v:231: $readmemh(memory/instructions.mem): Not enough words in the file for the requested range [0:1024].
+WARNING: ./memory/memory.v:98: $readmemh(memory/data.mem): Not enough words in the file for the requested range [0:8191].
+Register: 00000000
+inside the mux2, in0 = 00000000 in1 = 00000000, sel x, time =                    0
+mux2 out: 0xZzzzzzzz
+out vals xxxxxxxx xxxxxxxx
+inside the mux2, in0 = xxxxxxxx in1 = xxxxxxxx, sel x, time =                    0
+mux2 out: 0xZzzzzzzz
+############################
+Time:                    0, Clock: 0
+PC_IN_MUX.out: xxxxxxxx
+PC.out: 00000000
+PCNext.out: xxxxxxxx
+PCNext.PC: 00000000
+IM.data_out: 0xxxxxxxxx
+DCU.PC_IN_MUX_SEL: x
+DCU.RF_WR_EN: x
+DCU.RF_SEL_1: xx
+DCU.RF_SEL_2: xx
+DCU.RF_SEL_RD: xx
+DCU.RF_DATA_IN_MUX_SEL: x
+DCU.ALU_OP_1_MUX_SEL: x
+DCU.ALU_OP_2_MUX_SEL: x
+DCU.ALU_OPCODE: x
+DCU.immediate: 0xxxxxxxxx
+DCU.DATA_MEMORY_WR_EN: x
+DCU.DATA_MEMORY_SIZE_SEL: x
+DCU.DATA_MEMORY_SIGN_EXTEND: x
+RF.reg_1: xxxxxxxx, RF.reg_2: xxxxxxxx
+ALU_OP_1_MUX.out: Zzzzzzzz
+ALU_OP_2_MUX.out: Zzzzzzzz
+ALU_32.out: xxxxxxxx
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+write select xx
+data in xxxxxxxx
+set x
+reset x
+addr: 0x00000000
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: x00000000
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000000
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 00000004 in1 = xxxxxxxx in2 = xxxxxxxx, sel xx, time =                    0
+mux3 out: 0xZzzzzzzz
+inside the mux2, in0 = 00000004 in1 = xxxxxxxx, sel x, time =                    0
+mux2 out: 0xZzzzzzzz
+inside the mux2, in0 = 00000000 in1 = xxxxxxxx, sel x, time =                    0
+mux2 out: 0xZzzzzzzz
+inside the mux3, in0 = 00000004 in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                    0
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = xxxxxxxx in1 = fffffff0, sel 1, time =                    0
+mux2 out: 0xfffffff0
+inside the mux2, in0 = 00000000 in1 = xxxxxxxx, sel 1, time =                    0
+mux2 out: 0xxxxxxxxx
+out vals 00000000 00000000
+inside the mux2, in0 = 00000004 in1 = xxxxxxxx, sel 0, time =                    0
+mux2 out: 0x00000004
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                    0
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = fffffff0, sel 1, time =                    0
+mux2 out: 0xfffffff0
+out: 0xfffffff0 zero: 1 op_1: 0
+Instruction: 0b11111111000000010000000100010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000004 in1 = fffffff0 in2 = xxxxxxxx, sel 01, time =                  100
+mux3 out: 0xfffffff0
+inside the mux2, in0 = 00000004 in1 = fffffff0, sel 0, time =                  100
+mux2 out: 0x00000004
+Register: 00000004
+inside the mux2, in0 = 00000004 in1 = 00000000, sel 1, time =                  100
+mux2 out: 0x00000000
+write select 02
+data in fffffff0
+set 0
+reset 0
+addr: 0x00000004
+############################
+Time:                  200, Clock: 0
+PC_IN_MUX.out: 00000004
+PC.out: 00000004
+PCNext.out: 00000008
+PCNext.PC: 00000004
+IM.data_out: 0x00812623
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 02
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 02
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0xfffffff0
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: fffffff0
+ALU_32.out: fffffff0
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: fffffff0
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000000
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals fffffff0 00000000
+inside the mux3, in0 = 00000008 in1 = fffffff0 in2 = xxxxxxxx, sel 01, time =                  200
+mux3 out: 0xfffffff0
+inside the mux2, in0 = 00000008 in1 = fffffff0, sel 0, time =                  200
+mux2 out: 0x00000008
+inside the mux2, in0 = 00000004 in1 = fffffff0, sel 1, time =                  200
+mux2 out: 0xfffffff0
+inside the mux2, in0 = 00000000 in1 = 00000008, sel 0, time =                  200
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000008 in1 = fffffff0 in2 = xxxxxxxx, sel 00, time =                  200
+mux3 out: 0x00000008
+inside the mux2, in0 = 00000004 in1 = fffffff0, sel 0, time =                  200
+mux2 out: 0x00000004
+inside the mux2, in0 = 00000000 in1 = 0000000c, sel 0, time =                  200
+mux2 out: 0x00000000
+out vals fffffff0 00000000
+inside the mux2, in0 = 00000000 in1 = 0000000c, sel 1, time =                  200
+mux2 out: 0x0000000c
+inside the mux2, in0 = 00000004 in1 = fffffff0, sel 1, time =                  200
+mux2 out: 0xfffffff0
+Instruction: 0b00000000100000010010011000100011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 1
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xfffffffc zero: 0 op_1: 1
+Register: 00000008
+inside the mux2, in0 = 00000008 in1 = fffffff0, sel 1, time =                  300
+mux2 out: 0xfffffff0
+inside the mux3, in0 = 00000008 in1 = fffffffc in2 = xxxxxxxx, sel 00, time =                  300
+mux3 out: 0x00000008
+inside the mux2, in0 = 00000008 in1 = fffffffc, sel 0, time =                  300
+mux2 out: 0x00000008
+write select 00
+data in 00000008
+set 0
+reset 0
+############################
+Time:                  400, Clock: 0
+PC_IN_MUX.out: 00000008
+PC.out: 00000008
+PCNext.out: 00000008
+PCNext.PC: 00000008
+IM.data_out: 0x00812623
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 0
+DCU.RF_SEL_1: 02
+DCU.RF_SEL_2: 08
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x0000000c
+DCU.DATA_MEMORY_WR_EN: 1
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: fffffff0, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: fffffff0
+ALU_OP_2_MUX.out: 0000000c
+ALU_32.out: fffffffc
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00000008
+DATA MEMORY WRITE addr data_in: 0xfffffffc         0
+addr: 0x00000008
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000000
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 0000000c in1 = fffffffc in2 = xxxxxxxx, sel 00, time =                  400
+mux3 out: 0x0000000c
+inside the mux2, in0 = 0000000c in1 = fffffffc, sel 0, time =                  400
+mux2 out: 0x0000000c
+inside the mux3, in0 = 0000000c in1 = fffffffc in2 = xxxxxxxx, sel 01, time =                  400
+mux3 out: 0xfffffffc
+inside the mux2, in0 = 00000000 in1 = 00000010, sel 1, time =                  400
+mux2 out: 0x00000010
+out vals 00000000 00000000
+inside the mux2, in0 = 00000008 in1 = 00000000, sel 1, time =                  400
+mux2 out: 0x00000000
+out vals fffffff0 00000000
+inside the mux2, in0 = 00000008 in1 = fffffff0, sel 1, time =                  400
+mux2 out: 0xfffffff0
+out: 0x00000000 zero: 0 op_1: 1
+Instruction: 0b00000001000000010000010000010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 0000000c in1 = 00000000 in2 = xxxxxxxx, sel 01, time =                  500
+mux3 out: 0x00000000
+inside the mux2, in0 = 0000000c in1 = 00000000, sel 0, time =                  500
+mux2 out: 0x0000000c
+Register: 0000000c
+inside the mux2, in0 = 0000000c in1 = fffffff0, sel 1, time =                  500
+mux2 out: 0xfffffff0
+inside the mux3, in0 = 0000000c in1 = 00000000 in2 = 00000000, sel 01, time =                  500
+mux3 out: 0x00000000
+write select 08
+data in 00000000
+set 0
+reset 0
+addr: 0x0000000c
+############################
+Time:                  600, Clock: 0
+PC_IN_MUX.out: 0000000c
+PC.out: 0000000c
+PCNext.out: 00000010
+PCNext.PC: 0000000c
+IM.data_out: 0x8081a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 02
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 08
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000010
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: fffffff0, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: fffffff0
+ALU_OP_2_MUX.out: 00000010
+ALU_32.out: 00000000
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 00000000
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000000
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 00000010 in1 = 00000000 in2 = 00000000, sel 01, time =                  600
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000010 in1 = 00000000, sel 0, time =                  600
+mux2 out: 0x00000010
+inside the mux2, in0 = 00000000 in1 = fffff808, sel 0, time =                  600
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000010 in1 = 00000000 in2 = 00000000, sel 00, time =                  600
+mux3 out: 0x00000010
+inside the mux2, in0 = 0000000c in1 = fffffff0, sel 0, time =                  600
+mux2 out: 0x0000000c
+inside the mux3, in0 = 00000010 in1 = 00000000 in2 = 00000000, sel 10, time =                  600
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = fffff808, sel 1, time =                  600
+mux2 out: 0xfffff808
+inside the mux2, in0 = 0000000c in1 = fffffff0, sel 1, time =                  600
+mux2 out: 0xfffffff0
+out vals 00000000 00000000
+inside the mux2, in0 = 0000000c in1 = 00000000, sel 1, time =                  600
+mux2 out: 0x00000000
+Instruction: 0b10000000100000011010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xfffff808 zero: 1 op_1: 0
+Register: 00000010
+inside the mux2, in0 = 00000010 in1 = 00000000, sel 1, time =                  700
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000010 in1 = fffff808 in2 = 00000000, sel 10, time =                  700
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000010 in1 = fffff808, sel 0, time =                  700
+mux2 out: 0x00000010
+inside the mux3, in0 = 00000010 in1 = fffff808 in2 = xxxxxxxx, sel 10, time =                  700
+mux3 out: 0xxxxxxxxx
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+############################
+Time:                  800, Clock: 0
+PC_IN_MUX.out: 00000010
+PC.out: 00000010
+PCNext.out: 00000010
+PCNext.PC: 00000010
+IM.data_out: 0x8081a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 03
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0xfffff808
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: fffff808
+ALU_32.out: fffff808
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+addr: 0x00000010
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000000
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000014 in1 = fffff808 in2 = xxxxxxxx, sel 10, time =                  800
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000014 in1 = fffff808, sel 0, time =                  800
+mux2 out: 0x00000014
+inside the mux2, in0 = 00000000 in1 = 0000000c, sel 1, time =                  800
+mux2 out: 0x0000000c
+inside the mux3, in0 = 00000014 in1 = fffff808 in2 = xxxxxxxx, sel 01, time =                  800
+mux3 out: 0xfffff808
+out vals 00000000 00000000
+out: 0x0000000c zero: 0 op_1: 1
+Instruction: 0b00000000110000000000011100010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000014 in1 = 0000000c in2 = xxxxxxxx, sel 01, time =                  900
+mux3 out: 0x0000000c
+inside the mux2, in0 = 00000014 in1 = 0000000c, sel 0, time =                  900
+mux2 out: 0x00000014
+Register: 00000014
+inside the mux2, in0 = 00000014 in1 = 00000000, sel 1, time =                  900
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000014 in1 = 0000000c in2 = 00000000, sel 01, time =                  900
+mux3 out: 0x0000000c
+write select 0e
+data in 0000000c
+set 0
+reset 0
+addr: 0x00000014
+############################
+Time:                 1000, Clock: 0
+PC_IN_MUX.out: 00000014
+PC.out: 00000014
+PCNext.out: 00000018
+PCNext.PC: 00000014
+IM.data_out: 0x00e79023
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0e
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x0000000c
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 0000000c
+ALU_32.out: 0000000c
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 0000000c
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x0000000c
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000018 in1 = 0000000c in2 = 00000000, sel 01, time =                 1000
+mux3 out: 0x0000000c
+inside the mux2, in0 = 00000018 in1 = 0000000c, sel 0, time =                 1000
+mux2 out: 0x00000018
+inside the mux2, in0 = 00000000 in1 = 0000000e, sel 0, time =                 1000
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000018 in1 = 0000000c in2 = 00000000, sel 00, time =                 1000
+mux3 out: 0x00000018
+inside the mux2, in0 = 00000014 in1 = 00000000, sel 0, time =                 1000
+mux2 out: 0x00000014
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 1000
+mux2 out: 0x00000000
+out vals xxxxxxxx 0000000c
+inside the mux2, in0 = 00000014 in1 = xxxxxxxx, sel 0, time =                 1000
+mux2 out: 0x00000014
+inside the mux2, in0 = 0000000c in1 = 00000000, sel 0, time =                 1000
+mux2 out: 0x0000000c
+inside the mux2, in0 = 0000000c in1 = 00000000, sel 1, time =                 1000
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000014 in1 = xxxxxxxx, sel 1, time =                 1000
+mux2 out: 0xxxxxxxxx
+Instruction: 0b00000000111001111001000000100011
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 1
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Register: 00000018
+inside the mux2, in0 = 00000018 in1 = xxxxxxxx, sel 1, time =                 1100
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000018 in1 = xxxxxxxx in2 = 00000000, sel 00, time =                 1100
+mux3 out: 0x00000018
+inside the mux2, in0 = 00000018 in1 = xxxxxxxx, sel 0, time =                 1100
+mux2 out: 0x00000018
+inside the mux3, in0 = 00000018 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 1100
+mux3 out: 0x00000018
+write select 00
+data in 00000018
+set 0
+reset 0
+############################
+Time:                 1200, Clock: 0
+PC_IN_MUX.out: 00000018
+PC.out: 00000018
+PCNext.out: 00000018
+PCNext.PC: 00000018
+IM.data_out: 0x00e79023
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 0
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 0e
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 1
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 0000000c
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 00000018
+DATA MEMORY WRITE addr data_in: 0xxxxxxxxx        12
+addr: 0x00000018
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x0000000c
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 0000001c in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 1200
+mux3 out: 0x0000001c
+inside the mux2, in0 = 0000001c in1 = xxxxxxxx, sel 0, time =                 1200
+mux2 out: 0x0000001c
+out vals 00000000 00000000
+inside the mux2, in0 = 00000018 in1 = 00000000, sel 1, time =                 1200
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 1200
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000001c in1 = xxxxxxxx in2 = xxxxxxxx, sel 00, time =                 1200
+mux3 out: 0x0000001c
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 1, time =                 1200
+mux2 out: 0x00011000
+inside the mux3, in0 = 0000001c in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 1200
+mux3 out: 0xxxxxxxxx
+out: 0x00011000 zero: 0 op_1: 0
+Instruction: 0b00000000000000010001011110110111
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 1
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 1
+AUIPC_TYPE: 0
+inside the mux3, in0 = 0000001c in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 1300
+mux3 out: 0x00011000
+inside the mux2, in0 = 0000001c in1 = 00011000, sel 0, time =                 1300
+mux2 out: 0x0000001c
+Register: 0000001c
+inside the mux2, in0 = 0000001c in1 = 00000000, sel 1, time =                 1300
+mux2 out: 0x00000000
+write select 0f
+data in 00011000
+set 0
+reset 0
+addr: 0x0000001c
+############################
+Time:                 1400, Clock: 0
+PC_IN_MUX.out: 0000001c
+PC.out: 0000001c
+PCNext.out: 00000020
+PCNext.PC: 0000001c
+IM.data_out: 0x1087a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00011000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00011000
+ALU_32.out: 00011000
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00011000
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x0000000c
+Register x         15: x00011000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000020 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 1400
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000020 in1 = 00011000, sel 0, time =                 1400
+mux2 out: 0x00000020
+inside the mux2, in0 = 00000000 in1 = 00000108, sel 1, time =                 1400
+mux2 out: 0x00000108
+inside the mux3, in0 = 00000020 in1 = 00011000 in2 = xxxxxxxx, sel 10, time =                 1400
+mux3 out: 0xxxxxxxxx
+out vals 00011000 00000000
+inside the mux2, in0 = 0000001c in1 = 00011000, sel 1, time =                 1400
+mux2 out: 0x00011000
+Instruction: 0b00010000100001111010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0x00011108 zero: 0 op_1: 0
+Register: 00000020
+inside the mux2, in0 = 00000020 in1 = 00011000, sel 1, time =                 1500
+mux2 out: 0x00011000
+inside the mux3, in0 = 00000020 in1 = 00011108 in2 = xxxxxxxx, sel 10, time =                 1500
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000020 in1 = 00011108, sel 0, time =                 1500
+mux2 out: 0x00000020
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+############################
+Time:                 1600, Clock: 0
+PC_IN_MUX.out: 00000020
+PC.out: 00000020
+PCNext.out: 00000020
+PCNext.PC: 00000020
+IM.data_out: 0x1087a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000108
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00011000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00011000
+ALU_OP_2_MUX.out: 00000108
+ALU_32.out: 00011108
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+addr: 0x00000020
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x0000000c
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 00000024 in1 = 00011108 in2 = xxxxxxxx, sel 10, time =                 1600
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000024 in1 = 00011108, sel 0, time =                 1600
+mux2 out: 0x00000024
+inside the mux2, in0 = 00000020 in1 = xxxxxxxx, sel 1, time =                 1600
+mux2 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00000018, sel 1, time =                 1600
+mux2 out: 0x00000018
+inside the mux3, in0 = 00000024 in1 = 00011108 in2 = xxxxxxxx, sel 01, time =                 1600
+mux3 out: 0x00011108
+out vals 00000000 00000000
+inside the mux2, in0 = 00000020 in1 = 00000000, sel 1, time =                 1600
+mux2 out: 0x00000000
+out: 0x00000018 zero: 0 op_1: 0
+Instruction: 0b00000001100000000000011100010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000024 in1 = 00000018 in2 = xxxxxxxx, sel 01, time =                 1700
+mux3 out: 0x00000018
+inside the mux2, in0 = 00000024 in1 = 00000018, sel 0, time =                 1700
+mux2 out: 0x00000024
+Register: 00000024
+inside the mux2, in0 = 00000024 in1 = 00000000, sel 1, time =                 1700
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000024 in1 = 00000018 in2 = 00000000, sel 01, time =                 1700
+mux3 out: 0x00000018
+write select 0e
+data in 00000018
+set 0
+reset 0
+addr: 0x00000024
+############################
+Time:                 1800, Clock: 0
+PC_IN_MUX.out: 00000024
+PC.out: 00000024
+PCNext.out: 00000028
+PCNext.PC: 00000024
+IM.data_out: 0x00e79023
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0e
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000018
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00000018
+ALU_32.out: 00000018
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 00000018
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000028 in1 = 00000018 in2 = 00000000, sel 01, time =                 1800
+mux3 out: 0x00000018
+inside the mux2, in0 = 00000028 in1 = 00000018, sel 0, time =                 1800
+mux2 out: 0x00000028
+inside the mux2, in0 = 00000000 in1 = 0000000e, sel 0, time =                 1800
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000028 in1 = 00000018 in2 = 00000000, sel 00, time =                 1800
+mux3 out: 0x00000028
+inside the mux2, in0 = 00000024 in1 = 00000000, sel 0, time =                 1800
+mux2 out: 0x00000024
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 1800
+mux2 out: 0x00000000
+out vals xxxxxxxx 00000018
+inside the mux2, in0 = 00000024 in1 = xxxxxxxx, sel 0, time =                 1800
+mux2 out: 0x00000024
+inside the mux2, in0 = 00000018 in1 = 00000000, sel 0, time =                 1800
+mux2 out: 0x00000018
+inside the mux2, in0 = 00000018 in1 = 00000000, sel 1, time =                 1800
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000024 in1 = xxxxxxxx, sel 1, time =                 1800
+mux2 out: 0xxxxxxxxx
+Instruction: 0b00000000111001111001000000100011
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 1
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Register: 00000028
+inside the mux2, in0 = 00000028 in1 = xxxxxxxx, sel 1, time =                 1900
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000028 in1 = xxxxxxxx in2 = 00000000, sel 00, time =                 1900
+mux3 out: 0x00000028
+inside the mux2, in0 = 00000028 in1 = xxxxxxxx, sel 0, time =                 1900
+mux2 out: 0x00000028
+inside the mux3, in0 = 00000028 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 1900
+mux3 out: 0x00000028
+write select 00
+data in 00000028
+set 0
+reset 0
+############################
+Time:                 2000, Clock: 0
+PC_IN_MUX.out: 00000028
+PC.out: 00000028
+PCNext.out: 00000028
+PCNext.PC: 00000028
+IM.data_out: 0x00e79023
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 0
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 0e
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 1
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 00000018
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 00000028
+DATA MEMORY WRITE addr data_in: 0xxxxxxxxx        24
+addr: 0x00000028
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 0000002c in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 2000
+mux3 out: 0x0000002c
+inside the mux2, in0 = 0000002c in1 = xxxxxxxx, sel 0, time =                 2000
+mux2 out: 0x0000002c
+out vals 00000000 00000000
+inside the mux2, in0 = 00000028 in1 = 00000000, sel 1, time =                 2000
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 2000
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000002c in1 = xxxxxxxx in2 = xxxxxxxx, sel 00, time =                 2000
+mux3 out: 0x0000002c
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 1, time =                 2000
+mux2 out: 0x00011000
+inside the mux3, in0 = 0000002c in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 2000
+mux3 out: 0xxxxxxxxx
+out: 0x00011000 zero: 0 op_1: 0
+Instruction: 0b00000000000000010001011110110111
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 1
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 1
+AUIPC_TYPE: 0
+inside the mux3, in0 = 0000002c in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 2100
+mux3 out: 0x00011000
+inside the mux2, in0 = 0000002c in1 = 00011000, sel 0, time =                 2100
+mux2 out: 0x0000002c
+Register: 0000002c
+inside the mux2, in0 = 0000002c in1 = 00000000, sel 1, time =                 2100
+mux2 out: 0x00000000
+write select 0f
+data in 00011000
+set 0
+reset 0
+addr: 0x0000002c
+############################
+Time:                 2200, Clock: 0
+PC_IN_MUX.out: 0000002c
+PC.out: 0000002c
+PCNext.out: 00000030
+PCNext.PC: 0000002c
+IM.data_out: 0x10c7a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00011000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00011000
+ALU_32.out: 00011000
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00011000
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000018
+Register x         15: x00011000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000030 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 2200
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000030 in1 = 00011000, sel 0, time =                 2200
+mux2 out: 0x00000030
+inside the mux2, in0 = 00000000 in1 = 0000010c, sel 1, time =                 2200
+mux2 out: 0x0000010c
+inside the mux3, in0 = 00000030 in1 = 00011000 in2 = xxxxxxxx, sel 10, time =                 2200
+mux3 out: 0xxxxxxxxx
+out vals 00011000 00000000
+inside the mux2, in0 = 0000002c in1 = 00011000, sel 1, time =                 2200
+mux2 out: 0x00011000
+Instruction: 0b00010000110001111010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0x0001110c zero: 0 op_1: 0
+Register: 00000030
+inside the mux2, in0 = 00000030 in1 = 00011000, sel 1, time =                 2300
+mux2 out: 0x00011000
+inside the mux3, in0 = 00000030 in1 = 0001110c in2 = xxxxxxxx, sel 10, time =                 2300
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000030 in1 = 0001110c, sel 0, time =                 2300
+mux2 out: 0x00000030
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+############################
+Time:                 2400, Clock: 0
+PC_IN_MUX.out: 00000030
+PC.out: 00000030
+PCNext.out: 00000030
+PCNext.PC: 00000030
+IM.data_out: 0x10c7a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x0000010c
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00011000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00011000
+ALU_OP_2_MUX.out: 0000010c
+ALU_32.out: 0001110c
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+addr: 0x00000030
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 00000034 in1 = 0001110c in2 = xxxxxxxx, sel 10, time =                 2400
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000034 in1 = 0001110c, sel 0, time =                 2400
+mux2 out: 0x00000034
+inside the mux2, in0 = 00000030 in1 = xxxxxxxx, sel 1, time =                 2400
+mux2 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 2400
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000034 in1 = 0001110c in2 = 0000xxxx, sel 00, time =                 2400
+mux3 out: 0x00000034
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 2400
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000030 in1 = xxxxxxxx, sel 0, time =                 2400
+mux2 out: 0x00000030
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 2400
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000030 in1 = xxxxxxxx, sel 1, time =                 2400
+mux2 out: 0xxxxxxxxx
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Instruction: 0b00000000000001111001000000100011
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 1
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000034 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 2500
+mux3 out: 0x00000034
+inside the mux2, in0 = 00000034 in1 = xxxxxxxx, sel 0, time =                 2500
+mux2 out: 0x00000034
+Register: 00000034
+inside the mux2, in0 = 00000034 in1 = xxxxxxxx, sel 1, time =                 2500
+mux2 out: 0xxxxxxxxx
+write select 00
+data in 00000034
+set 0
+reset 0
+addr: 0x00000034
+DATA MEMORY WRITE addr data_in: 0xxxxxxxxx         0
+############################
+Time:                 2600, Clock: 0
+PC_IN_MUX.out: 00000034
+PC.out: 00000034
+PCNext.out: 00000038
+PCNext.PC: 00000034
+IM.data_out: 0x8081a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 0
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 1
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 00000034
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 00000038 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 2600
+mux3 out: 0x00000038
+inside the mux2, in0 = 00000038 in1 = xxxxxxxx, sel 0, time =                 2600
+mux2 out: 0x00000038
+out vals 00000000 00000000
+inside the mux2, in0 = 00000000 in1 = fffff808, sel 1, time =                 2600
+mux2 out: 0xfffff808
+inside the mux3, in0 = 00000038 in1 = xxxxxxxx in2 = xxxxxxxx, sel 10, time =                 2600
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000034 in1 = 00000000, sel 1, time =                 2600
+mux2 out: 0x00000000
+out vals 00000000 00000000
+Instruction: 0b10000000100000011010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xfffff808 zero: 0 op_1: 0
+Register: 00000038
+inside the mux2, in0 = 00000038 in1 = 00000000, sel 1, time =                 2700
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000038 in1 = fffff808 in2 = xxxxxxxx, sel 10, time =                 2700
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000038 in1 = fffff808, sel 0, time =                 2700
+mux2 out: 0x00000038
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+############################
+Time:                 2800, Clock: 0
+PC_IN_MUX.out: 00000038
+PC.out: 00000038
+PCNext.out: 00000038
+PCNext.PC: 00000038
+IM.data_out: 0x8081a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 03
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0xfffff808
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: fffff808
+ALU_32.out: fffff808
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+addr: 0x00000038
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x00000000
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 0000003c in1 = fffff808 in2 = xxxxxxxx, sel 10, time =                 2800
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 0000003c in1 = fffff808, sel 0, time =                 2800
+mux2 out: 0x0000003c
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 2800
+mux2 out: 0x00000000
+out vals xxxxxxxx 00000000
+inside the mux2, in0 = 00000038 in1 = xxxxxxxx, sel 1, time =                 2800
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 0000003c in1 = fffff808 in2 = 0000xxxx, sel 10, time =                 2800
+mux3 out: 0x0000xxxx
+out: 0xxxxxxxxx zero: 0 op_1: 1
+Instruction: 0b00000000000001111101011010000011
+Func3: 0x5
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 0000003c in1 = xxxxxxxx in2 = 0000xxxx, sel 10, time =                 2900
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 0000003c in1 = xxxxxxxx, sel 0, time =                 2900
+mux2 out: 0x0000003c
+Register: 0000003c
+inside the mux2, in0 = 0000003c in1 = xxxxxxxx, sel 1, time =                 2900
+mux2 out: 0xxxxxxxxx
+write select 0d
+data in 0000xxxx
+set 0
+reset 0
+addr: 0x0000003c
+############################
+Time:                 3000, Clock: 0
+PC_IN_MUX.out: 0000003c
+PC.out: 0000003c
+PCNext.out: 00000040
+PCNext.PC: 0000003c
+IM.data_out: 0x000117b7
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0d
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 0000xxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 00000040 in1 = xxxxxxxx in2 = 0000xxxx, sel 10, time =                 3000
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 00000040 in1 = xxxxxxxx, sel 0, time =                 3000
+mux2 out: 0x00000040
+inside the mux3, in0 = 00000040 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 3000
+mux3 out: 0x00000040
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 3000
+mux2 out: 0x00000000
+inside the mux2, in0 = 0000003c in1 = xxxxxxxx, sel 0, time =                 3000
+mux2 out: 0x0000003c
+out vals fffffff0 00000000
+inside the mux2, in0 = 0000003c in1 = fffffff0, sel 0, time =                 3000
+mux2 out: 0x0000003c
+out vals 00000000 00000000
+inside the mux2, in0 = 0000003c in1 = 00000000, sel 0, time =                 3000
+mux2 out: 0x0000003c
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 0, time =                 3000
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000040 in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 3000
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 1, time =                 3000
+mux2 out: 0x00011000
+inside the mux2, in0 = 0000003c in1 = 00000000, sel 1, time =                 3000
+mux2 out: 0x00000000
+Instruction: 0b00000000000000010001011110110111
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 1
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 1
+AUIPC_TYPE: 0
+out: 0x00011000 zero: 0 op_1: 0
+Register: 00000040
+inside the mux2, in0 = 00000040 in1 = 00000000, sel 1, time =                 3100
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000040 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 3100
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000040 in1 = 00011000, sel 0, time =                 3100
+mux2 out: 0x00000040
+write select 0f
+data in 00011000
+set 0
+reset 0
+############################
+Time:                 3200, Clock: 0
+PC_IN_MUX.out: 00000040
+PC.out: 00000040
+PCNext.out: 00000040
+PCNext.PC: 00000040
+IM.data_out: 0x000117b7
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00011000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00011000
+ALU_32.out: 00011000
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00011000
+addr: 0x00000040
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: x00011000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000044 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 3200
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000044 in1 = 00011000, sel 0, time =                 3200
+mux2 out: 0x00000044
+inside the mux2, in0 = 00000000 in1 = 00000108, sel 1, time =                 3200
+mux2 out: 0x00000108
+inside the mux3, in0 = 00000044 in1 = 00011000 in2 = xxxxxxxx, sel 10, time =                 3200
+mux3 out: 0xxxxxxxxx
+out vals 00011000 00000000
+inside the mux2, in0 = 00000040 in1 = 00011000, sel 1, time =                 3200
+mux2 out: 0x00011000
+out: 0x00011108 zero: 0 op_1: 0
+Instruction: 0b00010000100001111010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000044 in1 = 00011108 in2 = xxxxxxxx, sel 10, time =                 3300
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000044 in1 = 00011108, sel 0, time =                 3300
+mux2 out: 0x00000044
+Register: 00000044
+inside the mux2, in0 = 00000044 in1 = 00011000, sel 1, time =                 3300
+mux2 out: 0x00011000
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+addr: 0x00000044
+############################
+Time:                 3400, Clock: 0
+PC_IN_MUX.out: 00000044
+PC.out: 00000044
+PCNext.out: 00000048
+PCNext.PC: 00000044
+IM.data_out: 0x0007d703
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000108
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00011000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00011000
+ALU_OP_2_MUX.out: 00000108
+ALU_32.out: 00011108
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 00000048 in1 = 00011108 in2 = xxxxxxxx, sel 10, time =                 3400
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000048 in1 = 00011108, sel 0, time =                 3400
+mux2 out: 0x00000048
+inside the mux2, in0 = 00000044 in1 = xxxxxxxx, sel 1, time =                 3400
+mux2 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 3400
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000048 in1 = 00011108 in2 = 0000xxxx, sel 10, time =                 3400
+mux3 out: 0x0000xxxx
+Instruction: 0b00000000000001111101011100000011
+Func3: 0x5
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Register: 00000048
+inside the mux2, in0 = 00000048 in1 = xxxxxxxx, sel 1, time =                 3500
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000048 in1 = xxxxxxxx in2 = 0000xxxx, sel 10, time =                 3500
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 00000048 in1 = xxxxxxxx, sel 0, time =                 3500
+mux2 out: 0x00000048
+write select 0e
+data in 0000xxxx
+set 0
+reset 0
+############################
+Time:                 3600, Clock: 0
+PC_IN_MUX.out: 00000048
+PC.out: 00000048
+PCNext.out: 00000048
+PCNext.PC: 00000048
+IM.data_out: 0x0007d703
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0e
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 0000xxxx
+addr: 0x00000048
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 0000004c in1 = xxxxxxxx in2 = 0000xxxx, sel 10, time =                 3600
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 0000004c in1 = xxxxxxxx, sel 0, time =                 3600
+mux2 out: 0x0000004c
+inside the mux3, in0 = 0000004c in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 3600
+mux3 out: 0x0000004c
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 3600
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000048 in1 = xxxxxxxx, sel 0, time =                 3600
+mux2 out: 0x00000048
+out vals fffffff0 00000000
+inside the mux2, in0 = 00000048 in1 = fffffff0, sel 0, time =                 3600
+mux2 out: 0x00000048
+out vals 00000000 00000000
+inside the mux2, in0 = 00000048 in1 = 00000000, sel 0, time =                 3600
+mux2 out: 0x00000048
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 0, time =                 3600
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000004c in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 3600
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 1, time =                 3600
+mux2 out: 0x00011000
+inside the mux2, in0 = 00000048 in1 = 00000000, sel 1, time =                 3600
+mux2 out: 0x00000000
+out: 0x00011000 zero: 0 op_1: 0
+Instruction: 0b00000000000000010001011110110111
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 1
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 1
+AUIPC_TYPE: 0
+inside the mux3, in0 = 0000004c in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 3700
+mux3 out: 0x00011000
+inside the mux2, in0 = 0000004c in1 = 00011000, sel 0, time =                 3700
+mux2 out: 0x0000004c
+Register: 0000004c
+inside the mux2, in0 = 0000004c in1 = 00000000, sel 1, time =                 3700
+mux2 out: 0x00000000
+write select 0f
+data in 00011000
+set 0
+reset 0
+addr: 0x0000004c
+############################
+Time:                 3800, Clock: 0
+PC_IN_MUX.out: 0000004c
+PC.out: 0000004c
+PCNext.out: 00000050
+PCNext.PC: 0000004c
+IM.data_out: 0x10c7a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00011000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00011000
+ALU_32.out: 00011000
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00011000
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00011000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000050 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 3800
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000050 in1 = 00011000, sel 0, time =                 3800
+mux2 out: 0x00000050
+inside the mux2, in0 = 00000000 in1 = 0000010c, sel 1, time =                 3800
+mux2 out: 0x0000010c
+inside the mux3, in0 = 00000050 in1 = 00011000 in2 = xxxxxxxx, sel 10, time =                 3800
+mux3 out: 0xxxxxxxxx
+out vals 00011000 00000000
+inside the mux2, in0 = 0000004c in1 = 00011000, sel 1, time =                 3800
+mux2 out: 0x00011000
+Instruction: 0b00010000110001111010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0x0001110c zero: 0 op_1: 0
+Register: 00000050
+inside the mux2, in0 = 00000050 in1 = 00011000, sel 1, time =                 3900
+mux2 out: 0x00011000
+inside the mux3, in0 = 00000050 in1 = 0001110c in2 = xxxxxxxx, sel 10, time =                 3900
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000050 in1 = 0001110c, sel 0, time =                 3900
+mux2 out: 0x00000050
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+############################
+Time:                 4000, Clock: 0
+PC_IN_MUX.out: 00000050
+PC.out: 00000050
+PCNext.out: 00000050
+PCNext.PC: 00000050
+IM.data_out: 0x10c7a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x0000010c
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00011000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00011000
+ALU_OP_2_MUX.out: 0000010c
+ALU_32.out: 0001110c
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+addr: 0x00000050
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 00000054 in1 = 0001110c in2 = xxxxxxxx, sel 10, time =                 4000
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000054 in1 = 0001110c, sel 0, time =                 4000
+mux2 out: 0x00000054
+inside the mux2, in0 = 00000050 in1 = xxxxxxxx, sel 1, time =                 4000
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000054 in1 = 0001110c in2 = xxxxxxxx, sel 01, time =                 4000
+mux3 out: 0x0001110c
+inside the mux2, in0 = 00000000 in1 = 0000000e, sel 0, time =                 4000
+mux2 out: 0x00000000
+out vals 0000xxxx 0000xxxx
+inside the mux2, in0 = 0000xxxx in1 = 00000000, sel 0, time =                 4000
+mux2 out: 0x0000xxxx
+inside the mux2, in0 = 00000050 in1 = 0000xxxx, sel 1, time =                 4000
+mux2 out: 0x0000xxxx
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Instruction: 0b00000000111001101000011100110011
+Func3: 0x0
+Types
+R_TYPE: 1
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000054 in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 4100
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000054 in1 = xxxxxxxx, sel 0, time =                 4100
+mux2 out: 0x00000054
+Register: 00000054
+inside the mux2, in0 = 00000054 in1 = 0000xxxx, sel 1, time =                 4100
+mux2 out: 0x0000xxxx
+write select 0e
+data in xxxxxxxx
+set 0
+reset 0
+addr: 0x00000054
+############################
+Time:                 4200, Clock: 0
+PC_IN_MUX.out: 00000054
+PC.out: 00000054
+PCNext.out: 00000058
+PCNext.PC: 00000054
+IM.data_out: 0x01071713
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0d
+DCU.RF_SEL_2: 0e
+DCU.RF_SEL_RD: 0e
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 0
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 0000xxxx, RF.reg_2: 0000xxxx
+ALU_OP_1_MUX.out: 0000xxxx
+ALU_OP_2_MUX.out: 0000xxxx
+ALU_32.out: xxxxxxxx
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: xxxxxxxxx
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 0000xxxx xxxxxxxx
+inside the mux3, in0 = 00000058 in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 4200
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000058 in1 = xxxxxxxx, sel 0, time =                 4200
+mux2 out: 0x00000058
+inside the mux2, in0 = xxxxxxxx in1 = 00000000, sel 0, time =                 4200
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000058 in1 = xxxxxxxx in2 = xxxxxxxx, sel 00, time =                 4200
+mux3 out: 0x00000058
+inside the mux2, in0 = 00000054 in1 = 0000xxxx, sel 0, time =                 4200
+mux2 out: 0x00000054
+inside the mux3, in0 = 00000058 in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 4200
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = xxxxxxxx in1 = 00000010, sel 1, time =                 4200
+mux2 out: 0x00000010
+inside the mux2, in0 = 00000054 in1 = 0000xxxx, sel 1, time =                 4200
+mux2 out: 0x0000xxxx
+out vals 00000000 00000000
+inside the mux2, in0 = 00000054 in1 = 00000000, sel 1, time =                 4200
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 00000010, sel 1, time =                 4200
+mux2 out: 0x00000010
+out vals xxxxxxxx 00000000
+inside the mux2, in0 = 00000054 in1 = xxxxxxxx, sel 1, time =                 4200
+mux2 out: 0xxxxxxxxx
+Instruction: 0b00000001000001110001011100010011
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xxxxx0000 zero: 0 op_1: 0
+Register: 00000058
+inside the mux2, in0 = 00000058 in1 = xxxxxxxx, sel 1, time =                 4300
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000058 in1 = xxxx0000 in2 = xxxxxxxx, sel 01, time =                 4300
+mux3 out: 0xxxxx0000
+inside the mux2, in0 = 00000058 in1 = xxxx0000, sel 0, time =                 4300
+mux2 out: 0x00000058
+write select 0e
+data in xxxx0000
+set 0
+reset 0
+############################
+Time:                 4400, Clock: 0
+PC_IN_MUX.out: 00000058
+PC.out: 00000058
+PCNext.out: 00000058
+PCNext.PC: 00000058
+IM.data_out: 0x01071713
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0e
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0e
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 5
+DCU.immediate: 0x00000010
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: xxxxxxxx, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000010
+ALU_32.out: xxxx0000
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxx0000
+addr: 0x00000058
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: xxxxx0000
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxx0000 00000000
+inside the mux3, in0 = 0000005c in1 = xxxx0000 in2 = xxxxxxxx, sel 01, time =                 4400
+mux3 out: 0xxxxx0000
+inside the mux2, in0 = 0000005c in1 = xxxx0000, sel 0, time =                 4400
+mux2 out: 0x0000005c
+inside the mux2, in0 = 00000058 in1 = xxxx0000, sel 1, time =                 4400
+mux2 out: 0xxxxx0000
+out: 0x0000xxxx zero: 0 op_1: 0
+Instruction: 0b00000001000001110101011100010011
+Func3: 0x5
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 0000005c in1 = 0000xxxx in2 = xxxxxxxx, sel 01, time =                 4500
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 0000005c in1 = 0000xxxx, sel 0, time =                 4500
+mux2 out: 0x0000005c
+Register: 0000005c
+inside the mux2, in0 = 0000005c in1 = xxxx0000, sel 1, time =                 4500
+mux2 out: 0xxxxx0000
+write select 0e
+data in 0000xxxx
+set 0
+reset 0
+addr: 0x0000005c
+############################
+Time:                 4600, Clock: 0
+PC_IN_MUX.out: 0000005c
+PC.out: 0000005c
+PCNext.out: 00000060
+PCNext.PC: 0000005c
+IM.data_out: 0x00e79023
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0e
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0e
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 6
+DCU.immediate: 0x00000010
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: xxxx0000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: xxxx0000
+ALU_OP_2_MUX.out: 00000010
+ALU_32.out: 0000xxxx
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 0000xxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 0000xxxx 00000000
+inside the mux3, in0 = 00000060 in1 = 0000xxxx in2 = xxxxxxxx, sel 01, time =                 4600
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 00000060 in1 = 0000xxxx, sel 0, time =                 4600
+mux2 out: 0x00000060
+inside the mux2, in0 = 0000005c in1 = 0000xxxx, sel 1, time =                 4600
+mux2 out: 0x0000xxxx
+inside the mux2, in0 = 00000000 in1 = 0000000e, sel 0, time =                 4600
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000060 in1 = 0000xxxx in2 = xxxxxxxx, sel 00, time =                 4600
+mux3 out: 0x00000060
+inside the mux2, in0 = 0000005c in1 = 0000xxxx, sel 0, time =                 4600
+mux2 out: 0x0000005c
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 4600
+mux2 out: 0x00000000
+out vals xxxxxxxx 0000xxxx
+inside the mux2, in0 = 0000005c in1 = xxxxxxxx, sel 0, time =                 4600
+mux2 out: 0x0000005c
+inside the mux2, in0 = 0000xxxx in1 = 00000000, sel 0, time =                 4600
+mux2 out: 0x0000xxxx
+inside the mux3, in0 = 00000060 in1 = 0000xxxx in2 = 0000xxxx, sel 00, time =                 4600
+mux3 out: 0x00000060
+inside the mux2, in0 = 0000xxxx in1 = 00000000, sel 1, time =                 4600
+mux2 out: 0x00000000
+inside the mux2, in0 = 0000005c in1 = xxxxxxxx, sel 1, time =                 4600
+mux2 out: 0xxxxxxxxx
+Instruction: 0b00000000111001111001000000100011
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 1
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Register: 00000060
+inside the mux2, in0 = 00000060 in1 = xxxxxxxx, sel 1, time =                 4700
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000060 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 4700
+mux3 out: 0x00000060
+inside the mux2, in0 = 00000060 in1 = xxxxxxxx, sel 0, time =                 4700
+mux2 out: 0x00000060
+write select 00
+data in 00000060
+set 0
+reset 0
+############################
+Time:                 4800, Clock: 0
+PC_IN_MUX.out: 00000060
+PC.out: 00000060
+PCNext.out: 00000060
+PCNext.PC: 00000060
+IM.data_out: 0x00e79023
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 0
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 0e
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 1
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 0000xxxx
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 00000060
+DATA MEMORY WRITE addr data_in: 0xxxxxxxxx         X
+addr: 0x00000060
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 00000064 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 4800
+mux3 out: 0x00000064
+inside the mux2, in0 = 00000064 in1 = xxxxxxxx, sel 0, time =                 4800
+mux2 out: 0x00000064
+inside the mux3, in0 = 00000064 in1 = xxxxxxxx in2 = 0000xxxx, sel 01, time =                 4800
+mux3 out: 0xxxxxxxxx
+out vals 00000000 00000000
+inside the mux2, in0 = 00000060 in1 = 00000000, sel 1, time =                 4800
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 4800
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000064 in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 4800
+mux3 out: 0xxxxxxxxx
+out: 0x00000000 zero: 0 op_1: 0
+Instruction: 0b00000000000000000000011110010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000064 in1 = 00000000 in2 = xxxxxxxx, sel 01, time =                 4900
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000064 in1 = 00000000, sel 0, time =                 4900
+mux2 out: 0x00000064
+Register: 00000064
+inside the mux2, in0 = 00000064 in1 = 00000000, sel 1, time =                 4900
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000064 in1 = 00000000 in2 = 00000000, sel 01, time =                 4900
+mux3 out: 0x00000000
+write select 0f
+data in 00000000
+set 0
+reset 0
+addr: 0x00000064
+############################
+Time:                 5000, Clock: 0
+PC_IN_MUX.out: 00000064
+PC.out: 00000064
+PCNext.out: 00000068
+PCNext.PC: 00000064
+IM.data_out: 0x00078513
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: 00000000
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 00000000
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000068 in1 = 00000000 in2 = 00000000, sel 01, time =                 5000
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000068 in1 = 00000000, sel 0, time =                 5000
+mux2 out: 0x00000068
+out vals 00000000 00000000
+Instruction: 0b00000000000001111000010100010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0x00000000 zero: 1 op_1: 0
+Register: 00000068
+inside the mux2, in0 = 00000068 in1 = 00000000, sel 1, time =                 5100
+mux2 out: 0x00000000
+write select 0a
+data in 00000000
+set 0
+reset 0
+############################
+Time:                 5200, Clock: 0
+PC_IN_MUX.out: 00000068
+PC.out: 00000068
+PCNext.out: 00000068
+PCNext.PC: 00000068
+IM.data_out: 0x00078513
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0a
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: 00000000
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 00000000
+addr: 0x00000068
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 0000006c in1 = 00000000 in2 = 00000000, sel 01, time =                 5200
+mux3 out: 0x00000000
+inside the mux2, in0 = 0000006c in1 = 00000000, sel 0, time =                 5200
+mux2 out: 0x0000006c
+inside the mux2, in0 = 00000000 in1 = 0000000c, sel 0, time =                 5200
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000006c in1 = 00000000 in2 = 00000000, sel 00, time =                 5200
+mux3 out: 0x0000006c
+inside the mux2, in0 = 00000068 in1 = 00000000, sel 0, time =                 5200
+mux2 out: 0x00000068
+inside the mux3, in0 = 0000006c in1 = 00000000 in2 = 00000000, sel 10, time =                 5200
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 0000000c, sel 1, time =                 5200
+mux2 out: 0x0000000c
+inside the mux2, in0 = 00000068 in1 = 00000000, sel 1, time =                 5200
+mux2 out: 0x00000000
+out vals fffffff0 00000000
+inside the mux2, in0 = 00000068 in1 = fffffff0, sel 1, time =                 5200
+mux2 out: 0xfffffff0
+out: 0xfffffffc zero: 1 op_1: 0
+Instruction: 0b00000000110000010010010000000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 0000006c in1 = fffffffc in2 = 00000000, sel 10, time =                 5300
+mux3 out: 0x00000000
+inside the mux2, in0 = 0000006c in1 = fffffffc, sel 0, time =                 5300
+mux2 out: 0x0000006c
+Register: 0000006c
+inside the mux2, in0 = 0000006c in1 = fffffff0, sel 1, time =                 5300
+mux2 out: 0xfffffff0
+inside the mux3, in0 = 0000006c in1 = fffffffc in2 = xxxxxxxx, sel 10, time =                 5300
+mux3 out: 0xxxxxxxxx
+write select 08
+data in xxxxxxxx
+set 0
+reset 0
+addr: 0x0000006c
+############################
+Time:                 5400, Clock: 0
+PC_IN_MUX.out: 0000006c
+PC.out: 0000006c
+PCNext.out: 00000070
+PCNext.PC: 0000006c
+IM.data_out: 0x01010113
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 02
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 08
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x0000000c
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: fffffff0, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: fffffff0
+ALU_OP_2_MUX.out: 0000000c
+ALU_32.out: fffffffc
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: xxxxxxxxx
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals fffffff0 00000000
+inside the mux3, in0 = 00000070 in1 = fffffffc in2 = xxxxxxxx, sel 10, time =                 5400
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000070 in1 = fffffffc, sel 0, time =                 5400
+mux2 out: 0x00000070
+inside the mux2, in0 = 00000000 in1 = 00000010, sel 1, time =                 5400
+mux2 out: 0x00000010
+inside the mux3, in0 = 00000070 in1 = fffffffc in2 = xxxxxxxx, sel 01, time =                 5400
+mux3 out: 0xfffffffc
+Instruction: 0b00000001000000010000000100010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0x00000000 zero: 0 op_1: 1
+Register: 00000070
+inside the mux2, in0 = 00000070 in1 = fffffff0, sel 1, time =                 5500
+mux2 out: 0xfffffff0
+inside the mux3, in0 = 00000070 in1 = 00000000 in2 = xxxxxxxx, sel 01, time =                 5500
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000070 in1 = 00000000, sel 0, time =                 5500
+mux2 out: 0x00000070
+inside the mux3, in0 = 00000070 in1 = 00000000 in2 = 00000000, sel 01, time =                 5500
+mux3 out: 0x00000000
+write select 02
+data in 00000000
+set 0
+reset 0
+############################
+Time:                 5600, Clock: 0
+PC_IN_MUX.out: 00000070
+PC.out: 00000070
+PCNext.out: 00000070
+PCNext.PC: 00000070
+IM.data_out: 0x01010113
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 02
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 02
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000010
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: fffffff0, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: fffffff0
+ALU_OP_2_MUX.out: 00000010
+ALU_32.out: 00000000
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 00000000
+addr: 0x00000070
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: x00000000
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: xxxxxxxxx
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000074 in1 = 00000000 in2 = 00000000, sel 01, time =                 5600
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000074 in1 = 00000000, sel 0, time =                 5600
+mux2 out: 0x00000074
+inside the mux2, in0 = 00000070 in1 = 00000000, sel 1, time =                 5600
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 5600
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000074 in1 = 00000000 in2 = 00000000, sel 00, time =                 5600
+mux3 out: 0x00000074
+inside the mux2, in0 = 00000070 in1 = 00000000, sel 0, time =                 5600
+mux2 out: 0x00000070
+out vals 00000000 00000000
+inside the mux2, in0 = 00000074 in1 = 00000000, sel 1, time =                 5600
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 5600
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000070 in1 = 00000000, sel 1, time =                 5600
+mux2 out: 0x00000000
+out: 0x00000000 zero: 1 op_1: 0
+Instruction: 0b00000000000000001000000001100111
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 1
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+Register: 00000000
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 5700
+mux2 out: 0x00000000
+write select 00
+data in 00000074
+set 0
+reset 0
+addr: 0x00000000
+############################
+Time:                 5800, Clock: 0
+PC_IN_MUX.out: 00000000
+PC.out: 00000000
+PCNext.out: 00000004
+PCNext.PC: 00000000
+IM.data_out: 0xff010113
+DCU.PC_IN_MUX_SEL: 1
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 01
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: 00000000
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 00000074
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: x00000000
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: xxxxxxxxx
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 00000004 in1 = 00000000 in2 = 00000000, sel 00, time =                 5800
+mux3 out: 0x00000004
+inside the mux2, in0 = 00000004 in1 = 00000000, sel 1, time =                 5800
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = fffffff0, sel 1, time =                 5800
+mux2 out: 0xfffffff0
+inside the mux3, in0 = 00000004 in1 = 00000000 in2 = 00000000, sel 01, time =                 5800
+mux3 out: 0x00000000
+out vals 00000000 00000000
+inside the mux2, in0 = 00000004 in1 = 00000000, sel 0, time =                 5800
+mux2 out: 0x00000004
+Instruction: 0b11111111000000010000000100010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xfffffff0 zero: 1 op_1: 0
+Register: 00000004
+inside the mux2, in0 = 00000004 in1 = 00000000, sel 1, time =                 5900
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000004 in1 = fffffff0 in2 = 00000000, sel 01, time =                 5900
+mux3 out: 0xfffffff0
+inside the mux2, in0 = 00000004 in1 = fffffff0, sel 0, time =                 5900
+mux2 out: 0x00000004
+inside the mux3, in0 = 00000004 in1 = fffffff0 in2 = xxxxxxxx, sel 01, time =                 5900
+mux3 out: 0xfffffff0
+write select 02
+data in fffffff0
+set 0
+reset 0
+############################
+Time:                 6000, Clock: 0
+PC_IN_MUX.out: 00000004
+PC.out: 00000004
+PCNext.out: 00000004
+PCNext.PC: 00000004
+IM.data_out: 0xff010113
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 02
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 02
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0xfffffff0
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: fffffff0
+ALU_32.out: fffffff0
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: fffffff0
+addr: 0x00000004
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: xxxxxxxxx
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals fffffff0 00000000
+inside the mux3, in0 = 00000008 in1 = fffffff0 in2 = xxxxxxxx, sel 01, time =                 6000
+mux3 out: 0xfffffff0
+inside the mux2, in0 = 00000008 in1 = fffffff0, sel 0, time =                 6000
+mux2 out: 0x00000008
+inside the mux2, in0 = 00000004 in1 = fffffff0, sel 1, time =                 6000
+mux2 out: 0xfffffff0
+inside the mux2, in0 = 00000000 in1 = 00000008, sel 0, time =                 6000
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000008 in1 = fffffff0 in2 = xxxxxxxx, sel 00, time =                 6000
+mux3 out: 0x00000008
+inside the mux2, in0 = 00000004 in1 = fffffff0, sel 0, time =                 6000
+mux2 out: 0x00000004
+inside the mux2, in0 = 00000000 in1 = 0000000c, sel 0, time =                 6000
+mux2 out: 0x00000000
+out vals fffffff0 xxxxxxxx
+inside the mux2, in0 = xxxxxxxx in1 = 0000000c, sel 0, time =                 6000
+mux2 out: 0xxxxxxxxx
+inside the mux2, in0 = xxxxxxxx in1 = 0000000c, sel 1, time =                 6000
+mux2 out: 0x0000000c
+inside the mux2, in0 = 00000004 in1 = fffffff0, sel 1, time =                 6000
+mux2 out: 0xfffffff0
+out: 0xfffffffc zero: 0 op_1: 1
+Instruction: 0b00000000100000010010011000100011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 1
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000008 in1 = fffffffc in2 = xxxxxxxx, sel 00, time =                 6100
+mux3 out: 0x00000008
+inside the mux2, in0 = 00000008 in1 = fffffffc, sel 0, time =                 6100
+mux2 out: 0x00000008
+Register: 00000008
+inside the mux2, in0 = 00000008 in1 = fffffff0, sel 1, time =                 6100
+mux2 out: 0xfffffff0
+write select 00
+data in 00000008
+set 0
+reset 0
+addr: 0x00000008
+DATA MEMORY WRITE addr data_in: 0xfffffffc         x
+############################
+Time:                 6200, Clock: 0
+PC_IN_MUX.out: 00000008
+PC.out: 00000008
+PCNext.out: 0000000c
+PCNext.PC: 00000008
+IM.data_out: 0x01010413
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 0
+DCU.RF_SEL_1: 02
+DCU.RF_SEL_2: 08
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x0000000c
+DCU.DATA_MEMORY_WR_EN: 1
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: fffffff0, RF.reg_2: xxxxxxxx
+ALU_OP_1_MUX.out: fffffff0
+ALU_OP_2_MUX.out: 0000000c
+ALU_32.out: fffffffc
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00000008
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: xxxxxxxxx
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 0000000c in1 = fffffffc in2 = xxxxxxxx, sel 00, time =                 6200
+mux3 out: 0x0000000c
+inside the mux2, in0 = 0000000c in1 = fffffffc, sel 0, time =                 6200
+mux2 out: 0x0000000c
+inside the mux3, in0 = 0000000c in1 = fffffffc in2 = xxxxxxxx, sel 01, time =                 6200
+mux3 out: 0xfffffffc
+inside the mux2, in0 = xxxxxxxx in1 = 00000010, sel 1, time =                 6200
+mux2 out: 0x00000010
+out vals 00000000 00000000
+inside the mux2, in0 = 00000008 in1 = 00000000, sel 1, time =                 6200
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 00000010, sel 1, time =                 6200
+mux2 out: 0x00000010
+out vals fffffff0 00000000
+inside the mux2, in0 = 00000008 in1 = fffffff0, sel 1, time =                 6200
+mux2 out: 0xfffffff0
+Instruction: 0b00000001000000010000010000010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0x00000000 zero: 0 op_1: 1
+Register: 0000000c
+inside the mux2, in0 = 0000000c in1 = fffffff0, sel 1, time =                 6300
+mux2 out: 0xfffffff0
+inside the mux3, in0 = 0000000c in1 = 00000000 in2 = xxxxxxxx, sel 01, time =                 6300
+mux3 out: 0x00000000
+inside the mux2, in0 = 0000000c in1 = 00000000, sel 0, time =                 6300
+mux2 out: 0x0000000c
+inside the mux3, in0 = 0000000c in1 = 00000000 in2 = 00000000, sel 01, time =                 6300
+mux3 out: 0x00000000
+write select 08
+data in 00000000
+set 0
+reset 0
+############################
+Time:                 6400, Clock: 0
+PC_IN_MUX.out: 0000000c
+PC.out: 0000000c
+PCNext.out: 0000000c
+PCNext.PC: 0000000c
+IM.data_out: 0x01010413
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 02
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 08
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000010
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: fffffff0, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: fffffff0
+ALU_OP_2_MUX.out: 00000010
+ALU_32.out: 00000000
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 00000000
+addr: 0x0000000c
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00000000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals fffffff0 00000000
+inside the mux3, in0 = 00000010 in1 = 00000000 in2 = 00000000, sel 01, time =                 6400
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000010 in1 = 00000000, sel 0, time =                 6400
+mux2 out: 0x00000010
+inside the mux2, in0 = 00000000 in1 = fffff808, sel 0, time =                 6400
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000010 in1 = 00000000 in2 = 00000000, sel 00, time =                 6400
+mux3 out: 0x00000010
+inside the mux2, in0 = 0000000c in1 = fffffff0, sel 0, time =                 6400
+mux2 out: 0x0000000c
+inside the mux3, in0 = 00000010 in1 = 00000000 in2 = 00000000, sel 10, time =                 6400
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = fffff808, sel 1, time =                 6400
+mux2 out: 0xfffff808
+inside the mux2, in0 = 0000000c in1 = fffffff0, sel 1, time =                 6400
+mux2 out: 0xfffffff0
+out vals 00000000 00000000
+inside the mux2, in0 = 0000000c in1 = 00000000, sel 1, time =                 6400
+mux2 out: 0x00000000
+out: 0xfffff808 zero: 1 op_1: 0
+Instruction: 0b10000000100000011010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000010 in1 = fffff808 in2 = 00000000, sel 10, time =                 6500
+mux3 out: 0x00000000
+inside the mux2, in0 = 00000010 in1 = fffff808, sel 0, time =                 6500
+mux2 out: 0x00000010
+Register: 00000010
+inside the mux2, in0 = 00000010 in1 = 00000000, sel 1, time =                 6500
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000010 in1 = fffff808 in2 = xxxxxxxx, sel 10, time =                 6500
+mux3 out: 0xxxxxxxxx
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+addr: 0x00000010
+############################
+Time:                 6600, Clock: 0
+PC_IN_MUX.out: 00000010
+PC.out: 00000010
+PCNext.out: 00000014
+PCNext.PC: 00000010
+IM.data_out: 0x00c00713
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 03
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0xfffff808
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: fffff808
+ALU_32.out: fffff808
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000014 in1 = fffff808 in2 = xxxxxxxx, sel 10, time =                 6600
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000014 in1 = fffff808, sel 0, time =                 6600
+mux2 out: 0x00000014
+inside the mux2, in0 = 00000000 in1 = 0000000c, sel 1, time =                 6600
+mux2 out: 0x0000000c
+inside the mux3, in0 = 00000014 in1 = fffff808 in2 = xxxxxxxx, sel 01, time =                 6600
+mux3 out: 0xfffff808
+out vals 00000000 00000000
+Instruction: 0b00000000110000000000011100010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0x0000000c zero: 0 op_1: 1
+Register: 00000014
+inside the mux2, in0 = 00000014 in1 = 00000000, sel 1, time =                 6700
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000014 in1 = 0000000c in2 = xxxxxxxx, sel 01, time =                 6700
+mux3 out: 0x0000000c
+inside the mux2, in0 = 00000014 in1 = 0000000c, sel 0, time =                 6700
+mux2 out: 0x00000014
+inside the mux3, in0 = 00000014 in1 = 0000000c in2 = 00000000, sel 01, time =                 6700
+mux3 out: 0x0000000c
+write select 0e
+data in 0000000c
+set 0
+reset 0
+############################
+Time:                 6800, Clock: 0
+PC_IN_MUX.out: 00000014
+PC.out: 00000014
+PCNext.out: 00000014
+PCNext.PC: 00000014
+IM.data_out: 0x00c00713
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0e
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x0000000c
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 0000000c
+ALU_32.out: 0000000c
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 0000000c
+addr: 0x00000014
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000000c
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000018 in1 = 0000000c in2 = 00000000, sel 01, time =                 6800
+mux3 out: 0x0000000c
+inside the mux2, in0 = 00000018 in1 = 0000000c, sel 0, time =                 6800
+mux2 out: 0x00000018
+inside the mux2, in0 = 00000000 in1 = 0000000e, sel 0, time =                 6800
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000018 in1 = 0000000c in2 = 00000000, sel 00, time =                 6800
+mux3 out: 0x00000018
+inside the mux2, in0 = 00000014 in1 = 00000000, sel 0, time =                 6800
+mux2 out: 0x00000014
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 6800
+mux2 out: 0x00000000
+out vals xxxxxxxx 0000000c
+inside the mux2, in0 = 00000014 in1 = xxxxxxxx, sel 0, time =                 6800
+mux2 out: 0x00000014
+inside the mux2, in0 = 0000000c in1 = 00000000, sel 0, time =                 6800
+mux2 out: 0x0000000c
+inside the mux2, in0 = 0000000c in1 = 00000000, sel 1, time =                 6800
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000014 in1 = xxxxxxxx, sel 1, time =                 6800
+mux2 out: 0xxxxxxxxx
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Instruction: 0b00000000111001111001000000100011
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 1
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000018 in1 = xxxxxxxx in2 = 00000000, sel 00, time =                 6900
+mux3 out: 0x00000018
+inside the mux2, in0 = 00000018 in1 = xxxxxxxx, sel 0, time =                 6900
+mux2 out: 0x00000018
+Register: 00000018
+inside the mux2, in0 = 00000018 in1 = xxxxxxxx, sel 1, time =                 6900
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000018 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 6900
+mux3 out: 0x00000018
+write select 00
+data in 00000018
+set 0
+reset 0
+addr: 0x00000018
+DATA MEMORY WRITE addr data_in: 0xxxxxxxxx        12
+############################
+Time:                 7000, Clock: 0
+PC_IN_MUX.out: 00000018
+PC.out: 00000018
+PCNext.out: 0000001c
+PCNext.PC: 00000018
+IM.data_out: 0x000117b7
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 0
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 0e
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 1
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 0000000c
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 00000018
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000000c
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 0000001c in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 7000
+mux3 out: 0x0000001c
+inside the mux2, in0 = 0000001c in1 = xxxxxxxx, sel 0, time =                 7000
+mux2 out: 0x0000001c
+out vals 00000000 00000000
+inside the mux2, in0 = 00000018 in1 = 00000000, sel 1, time =                 7000
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 7000
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000001c in1 = xxxxxxxx in2 = xxxxxxxx, sel 00, time =                 7000
+mux3 out: 0x0000001c
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 1, time =                 7000
+mux2 out: 0x00011000
+inside the mux3, in0 = 0000001c in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 7000
+mux3 out: 0xxxxxxxxx
+Instruction: 0b00000000000000010001011110110111
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 1
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 1
+AUIPC_TYPE: 0
+out: 0x00011000 zero: 0 op_1: 0
+Register: 0000001c
+inside the mux2, in0 = 0000001c in1 = 00000000, sel 1, time =                 7100
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000001c in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 7100
+mux3 out: 0x00011000
+inside the mux2, in0 = 0000001c in1 = 00011000, sel 0, time =                 7100
+mux2 out: 0x0000001c
+write select 0f
+data in 00011000
+set 0
+reset 0
+############################
+Time:                 7200, Clock: 0
+PC_IN_MUX.out: 0000001c
+PC.out: 0000001c
+PCNext.out: 0000001c
+PCNext.PC: 0000001c
+IM.data_out: 0x000117b7
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00011000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00011000
+ALU_32.out: 00011000
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00011000
+addr: 0x0000001c
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000000c
+Register x         15: x00011000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000020 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 7200
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000020 in1 = 00011000, sel 0, time =                 7200
+mux2 out: 0x00000020
+inside the mux2, in0 = 00000000 in1 = 00000108, sel 1, time =                 7200
+mux2 out: 0x00000108
+inside the mux3, in0 = 00000020 in1 = 00011000 in2 = xxxxxxxx, sel 10, time =                 7200
+mux3 out: 0xxxxxxxxx
+out vals 00011000 00000000
+inside the mux2, in0 = 0000001c in1 = 00011000, sel 1, time =                 7200
+mux2 out: 0x00011000
+out: 0x00011108 zero: 0 op_1: 0
+Instruction: 0b00010000100001111010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000020 in1 = 00011108 in2 = xxxxxxxx, sel 10, time =                 7300
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000020 in1 = 00011108, sel 0, time =                 7300
+mux2 out: 0x00000020
+Register: 00000020
+inside the mux2, in0 = 00000020 in1 = 00011000, sel 1, time =                 7300
+mux2 out: 0x00011000
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+addr: 0x00000020
+############################
+Time:                 7400, Clock: 0
+PC_IN_MUX.out: 00000020
+PC.out: 00000020
+PCNext.out: 00000024
+PCNext.PC: 00000020
+IM.data_out: 0x01800713
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000108
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00011000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00011000
+ALU_OP_2_MUX.out: 00000108
+ALU_32.out: 00011108
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000000c
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 00000024 in1 = 00011108 in2 = xxxxxxxx, sel 10, time =                 7400
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000024 in1 = 00011108, sel 0, time =                 7400
+mux2 out: 0x00000024
+inside the mux2, in0 = 00000020 in1 = xxxxxxxx, sel 1, time =                 7400
+mux2 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00000018, sel 1, time =                 7400
+mux2 out: 0x00000018
+inside the mux3, in0 = 00000024 in1 = 00011108 in2 = xxxxxxxx, sel 01, time =                 7400
+mux3 out: 0x00011108
+out vals 00000000 00000000
+inside the mux2, in0 = 00000020 in1 = 00000000, sel 1, time =                 7400
+mux2 out: 0x00000000
+Instruction: 0b00000001100000000000011100010011
+Func3: 0x0
+Types
+R_TYPE: 0
+I_TYPE: 1
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0x00000018 zero: 0 op_1: 0
+Register: 00000024
+inside the mux2, in0 = 00000024 in1 = 00000000, sel 1, time =                 7500
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000024 in1 = 00000018 in2 = xxxxxxxx, sel 01, time =                 7500
+mux3 out: 0x00000018
+inside the mux2, in0 = 00000024 in1 = 00000018, sel 0, time =                 7500
+mux2 out: 0x00000024
+inside the mux3, in0 = 00000024 in1 = 00000018 in2 = 00000000, sel 01, time =                 7500
+mux3 out: 0x00000018
+write select 0e
+data in 00000018
+set 0
+reset 0
+############################
+Time:                 7600, Clock: 0
+PC_IN_MUX.out: 00000024
+PC.out: 00000024
+PCNext.out: 00000024
+PCNext.PC: 00000024
+IM.data_out: 0x01800713
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0e
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000018
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00000018
+ALU_32.out: 00000018
+DM.data_out: 00000000
+RF_DATA_IN_MUX.out: 00000018
+addr: 0x00000024
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000028 in1 = 00000018 in2 = 00000000, sel 01, time =                 7600
+mux3 out: 0x00000018
+inside the mux2, in0 = 00000028 in1 = 00000018, sel 0, time =                 7600
+mux2 out: 0x00000028
+inside the mux2, in0 = 00000000 in1 = 0000000e, sel 0, time =                 7600
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000028 in1 = 00000018 in2 = 00000000, sel 00, time =                 7600
+mux3 out: 0x00000028
+inside the mux2, in0 = 00000024 in1 = 00000000, sel 0, time =                 7600
+mux2 out: 0x00000024
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 7600
+mux2 out: 0x00000000
+out vals xxxxxxxx 00000018
+inside the mux2, in0 = 00000024 in1 = xxxxxxxx, sel 0, time =                 7600
+mux2 out: 0x00000024
+inside the mux2, in0 = 00000018 in1 = 00000000, sel 0, time =                 7600
+mux2 out: 0x00000018
+inside the mux2, in0 = 00000018 in1 = 00000000, sel 1, time =                 7600
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000024 in1 = xxxxxxxx, sel 1, time =                 7600
+mux2 out: 0xxxxxxxxx
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Instruction: 0b00000000111001111001000000100011
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 1
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000028 in1 = xxxxxxxx in2 = 00000000, sel 00, time =                 7700
+mux3 out: 0x00000028
+inside the mux2, in0 = 00000028 in1 = xxxxxxxx, sel 0, time =                 7700
+mux2 out: 0x00000028
+Register: 00000028
+inside the mux2, in0 = 00000028 in1 = xxxxxxxx, sel 1, time =                 7700
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000028 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 7700
+mux3 out: 0x00000028
+write select 00
+data in 00000028
+set 0
+reset 0
+addr: 0x00000028
+DATA MEMORY WRITE addr data_in: 0xxxxxxxxx        24
+############################
+Time:                 7800, Clock: 0
+PC_IN_MUX.out: 00000028
+PC.out: 00000028
+PCNext.out: 0000002c
+PCNext.PC: 00000028
+IM.data_out: 0x000117b7
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 0
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 0e
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 1
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 00000018
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 00000028
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 0000002c in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 7800
+mux3 out: 0x0000002c
+inside the mux2, in0 = 0000002c in1 = xxxxxxxx, sel 0, time =                 7800
+mux2 out: 0x0000002c
+out vals 00000000 00000000
+inside the mux2, in0 = 00000028 in1 = 00000000, sel 1, time =                 7800
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 7800
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000002c in1 = xxxxxxxx in2 = xxxxxxxx, sel 00, time =                 7800
+mux3 out: 0x0000002c
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 1, time =                 7800
+mux2 out: 0x00011000
+inside the mux3, in0 = 0000002c in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 7800
+mux3 out: 0xxxxxxxxx
+Instruction: 0b00000000000000010001011110110111
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 1
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 1
+AUIPC_TYPE: 0
+out: 0x00011000 zero: 0 op_1: 0
+Register: 0000002c
+inside the mux2, in0 = 0000002c in1 = 00000000, sel 1, time =                 7900
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000002c in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 7900
+mux3 out: 0x00011000
+inside the mux2, in0 = 0000002c in1 = 00011000, sel 0, time =                 7900
+mux2 out: 0x0000002c
+write select 0f
+data in 00011000
+set 0
+reset 0
+############################
+Time:                 8000, Clock: 0
+PC_IN_MUX.out: 0000002c
+PC.out: 0000002c
+PCNext.out: 0000002c
+PCNext.PC: 0000002c
+IM.data_out: 0x000117b7
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00011000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00011000
+ALU_32.out: 00011000
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00011000
+addr: 0x0000002c
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: x00011000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000030 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 8000
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000030 in1 = 00011000, sel 0, time =                 8000
+mux2 out: 0x00000030
+inside the mux2, in0 = 00000000 in1 = 0000010c, sel 1, time =                 8000
+mux2 out: 0x0000010c
+inside the mux3, in0 = 00000030 in1 = 00011000 in2 = xxxxxxxx, sel 10, time =                 8000
+mux3 out: 0xxxxxxxxx
+out vals 00011000 00000000
+inside the mux2, in0 = 0000002c in1 = 00011000, sel 1, time =                 8000
+mux2 out: 0x00011000
+out: 0x0001110c zero: 0 op_1: 0
+Instruction: 0b00010000110001111010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000030 in1 = 0001110c in2 = xxxxxxxx, sel 10, time =                 8100
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000030 in1 = 0001110c, sel 0, time =                 8100
+mux2 out: 0x00000030
+Register: 00000030
+inside the mux2, in0 = 00000030 in1 = 00011000, sel 1, time =                 8100
+mux2 out: 0x00011000
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+addr: 0x00000030
+############################
+Time:                 8200, Clock: 0
+PC_IN_MUX.out: 00000030
+PC.out: 00000030
+PCNext.out: 00000034
+PCNext.PC: 00000030
+IM.data_out: 0x00079023
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x0000010c
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00011000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00011000
+ALU_OP_2_MUX.out: 0000010c
+ALU_32.out: 0001110c
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 00000034 in1 = 0001110c in2 = xxxxxxxx, sel 10, time =                 8200
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000034 in1 = 0001110c, sel 0, time =                 8200
+mux2 out: 0x00000034
+inside the mux2, in0 = 00000030 in1 = xxxxxxxx, sel 1, time =                 8200
+mux2 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 8200
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000034 in1 = 0001110c in2 = 0000xxxx, sel 00, time =                 8200
+mux3 out: 0x00000034
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 8200
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000030 in1 = xxxxxxxx, sel 0, time =                 8200
+mux2 out: 0x00000030
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 8200
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000030 in1 = xxxxxxxx, sel 1, time =                 8200
+mux2 out: 0xxxxxxxxx
+Instruction: 0b00000000000001111001000000100011
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 1
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Register: 00000034
+inside the mux2, in0 = 00000034 in1 = xxxxxxxx, sel 1, time =                 8300
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000034 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 8300
+mux3 out: 0x00000034
+inside the mux2, in0 = 00000034 in1 = xxxxxxxx, sel 0, time =                 8300
+mux2 out: 0x00000034
+write select 00
+data in 00000034
+set 0
+reset 0
+############################
+Time:                 8400, Clock: 0
+PC_IN_MUX.out: 00000034
+PC.out: 00000034
+PCNext.out: 00000034
+PCNext.PC: 00000034
+IM.data_out: 0x00079023
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 0
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 00
+DCU.RF_DATA_IN_MUX_SEL: 0
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 1
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 00000034
+DATA MEMORY WRITE addr data_in: 0xxxxxxxxx         0
+addr: 0x00000034
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 00000038 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 8400
+mux3 out: 0x00000038
+inside the mux2, in0 = 00000038 in1 = xxxxxxxx, sel 0, time =                 8400
+mux2 out: 0x00000038
+out vals 00000000 00000000
+inside the mux2, in0 = 00000000 in1 = fffff808, sel 1, time =                 8400
+mux2 out: 0xfffff808
+inside the mux3, in0 = 00000038 in1 = xxxxxxxx in2 = xxxxxxxx, sel 10, time =                 8400
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000034 in1 = 00000000, sel 1, time =                 8400
+mux2 out: 0x00000000
+out vals 00000000 00000000
+out: 0xfffff808 zero: 0 op_1: 0
+Instruction: 0b10000000100000011010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000038 in1 = fffff808 in2 = xxxxxxxx, sel 10, time =                 8500
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000038 in1 = fffff808, sel 0, time =                 8500
+mux2 out: 0x00000038
+Register: 00000038
+inside the mux2, in0 = 00000038 in1 = 00000000, sel 1, time =                 8500
+mux2 out: 0x00000000
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+addr: 0x00000038
+############################
+Time:                 8600, Clock: 0
+PC_IN_MUX.out: 00000038
+PC.out: 00000038
+PCNext.out: 0000003c
+PCNext.PC: 00000038
+IM.data_out: 0x0007d683
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 03
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0xfffff808
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: fffff808
+ALU_32.out: fffff808
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 0000003c in1 = fffff808 in2 = xxxxxxxx, sel 10, time =                 8600
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 0000003c in1 = fffff808, sel 0, time =                 8600
+mux2 out: 0x0000003c
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 8600
+mux2 out: 0x00000000
+out vals xxxxxxxx 00000000
+inside the mux2, in0 = 00000038 in1 = xxxxxxxx, sel 1, time =                 8600
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 0000003c in1 = fffff808 in2 = 0000xxxx, sel 10, time =                 8600
+mux3 out: 0x0000xxxx
+Instruction: 0b00000000000001111101011010000011
+Func3: 0x5
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xxxxxxxxx zero: 0 op_1: 1
+Register: 0000003c
+inside the mux2, in0 = 0000003c in1 = xxxxxxxx, sel 1, time =                 8700
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 0000003c in1 = xxxxxxxx in2 = 0000xxxx, sel 10, time =                 8700
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 0000003c in1 = xxxxxxxx, sel 0, time =                 8700
+mux2 out: 0x0000003c
+write select 0d
+data in 0000xxxx
+set 0
+reset 0
+############################
+Time:                 8800, Clock: 0
+PC_IN_MUX.out: 0000003c
+PC.out: 0000003c
+PCNext.out: 0000003c
+PCNext.PC: 0000003c
+IM.data_out: 0x0007d683
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0d
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 0000xxxx
+addr: 0x0000003c
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+inside the mux3, in0 = 00000040 in1 = xxxxxxxx in2 = 0000xxxx, sel 10, time =                 8800
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 00000040 in1 = xxxxxxxx, sel 0, time =                 8800
+mux2 out: 0x00000040
+inside the mux3, in0 = 00000040 in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 8800
+mux3 out: 0x00000040
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 8800
+mux2 out: 0x00000000
+inside the mux2, in0 = 0000003c in1 = xxxxxxxx, sel 0, time =                 8800
+mux2 out: 0x0000003c
+out vals fffffff0 00000000
+inside the mux2, in0 = 0000003c in1 = fffffff0, sel 0, time =                 8800
+mux2 out: 0x0000003c
+out vals 00000000 00000000
+inside the mux2, in0 = 0000003c in1 = 00000000, sel 0, time =                 8800
+mux2 out: 0x0000003c
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 0, time =                 8800
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000040 in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 8800
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 1, time =                 8800
+mux2 out: 0x00011000
+inside the mux2, in0 = 0000003c in1 = 00000000, sel 1, time =                 8800
+mux2 out: 0x00000000
+out: 0x00011000 zero: 0 op_1: 0
+Instruction: 0b00000000000000010001011110110111
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 1
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 1
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000040 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 8900
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000040 in1 = 00011000, sel 0, time =                 8900
+mux2 out: 0x00000040
+Register: 00000040
+inside the mux2, in0 = 00000040 in1 = 00000000, sel 1, time =                 8900
+mux2 out: 0x00000000
+write select 0f
+data in 00011000
+set 0
+reset 0
+addr: 0x00000040
+############################
+Time:                 9000, Clock: 0
+PC_IN_MUX.out: 00000040
+PC.out: 00000040
+PCNext.out: 00000044
+PCNext.PC: 00000040
+IM.data_out: 0x1087a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00011000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00011000
+ALU_32.out: 00011000
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00011000
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: x00011000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000044 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 9000
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000044 in1 = 00011000, sel 0, time =                 9000
+mux2 out: 0x00000044
+inside the mux2, in0 = 00000000 in1 = 00000108, sel 1, time =                 9000
+mux2 out: 0x00000108
+inside the mux3, in0 = 00000044 in1 = 00011000 in2 = xxxxxxxx, sel 10, time =                 9000
+mux3 out: 0xxxxxxxxx
+out vals 00011000 00000000
+inside the mux2, in0 = 00000040 in1 = 00011000, sel 1, time =                 9000
+mux2 out: 0x00011000
+Instruction: 0b00010000100001111010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0x00011108 zero: 0 op_1: 0
+Register: 00000044
+inside the mux2, in0 = 00000044 in1 = 00011000, sel 1, time =                 9100
+mux2 out: 0x00011000
+inside the mux3, in0 = 00000044 in1 = 00011108 in2 = xxxxxxxx, sel 10, time =                 9100
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000044 in1 = 00011108, sel 0, time =                 9100
+mux2 out: 0x00000044
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+############################
+Time:                 9200, Clock: 0
+PC_IN_MUX.out: 00000044
+PC.out: 00000044
+PCNext.out: 00000044
+PCNext.PC: 00000044
+IM.data_out: 0x1087a783
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000108
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00011000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00011000
+ALU_OP_2_MUX.out: 00000108
+ALU_32.out: 00011108
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+addr: 0x00000044
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x00000018
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 00000048 in1 = 00011108 in2 = xxxxxxxx, sel 10, time =                 9200
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000048 in1 = 00011108, sel 0, time =                 9200
+mux2 out: 0x00000048
+inside the mux2, in0 = 00000044 in1 = xxxxxxxx, sel 1, time =                 9200
+mux2 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 1, time =                 9200
+mux2 out: 0x00000000
+inside the mux3, in0 = 00000048 in1 = 00011108 in2 = 0000xxxx, sel 10, time =                 9200
+mux3 out: 0x0000xxxx
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Instruction: 0b00000000000001111101011100000011
+Func3: 0x5
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000048 in1 = xxxxxxxx in2 = 0000xxxx, sel 10, time =                 9300
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 00000048 in1 = xxxxxxxx, sel 0, time =                 9300
+mux2 out: 0x00000048
+Register: 00000048
+inside the mux2, in0 = 00000048 in1 = xxxxxxxx, sel 1, time =                 9300
+mux2 out: 0xxxxxxxxx
+write select 0e
+data in 0000xxxx
+set 0
+reset 0
+addr: 0x00000048
+############################
+Time:                 9400, Clock: 0
+PC_IN_MUX.out: 00000048
+PC.out: 00000048
+PCNext.out: 0000004c
+PCNext.PC: 00000048
+IM.data_out: 0x000117b7
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0e
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00000000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 1
+DCU.DATA_MEMORY_SIGN_EXTEND: 1
+RF.reg_1: xxxxxxxx, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: xxxxxxxx
+ALU_OP_2_MUX.out: 00000000
+ALU_32.out: xxxxxxxx
+DM.data_out: 0000xxxx
+RF_DATA_IN_MUX.out: 0000xxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 0000004c in1 = xxxxxxxx in2 = 0000xxxx, sel 10, time =                 9400
+mux3 out: 0x0000xxxx
+inside the mux2, in0 = 0000004c in1 = xxxxxxxx, sel 0, time =                 9400
+mux2 out: 0x0000004c
+inside the mux3, in0 = 0000004c in1 = xxxxxxxx in2 = 0000xxxx, sel 00, time =                 9400
+mux3 out: 0x0000004c
+inside the mux2, in0 = 00000000 in1 = 00000000, sel 0, time =                 9400
+mux2 out: 0x00000000
+inside the mux2, in0 = 00000048 in1 = xxxxxxxx, sel 0, time =                 9400
+mux2 out: 0x00000048
+out vals fffffff0 00000000
+inside the mux2, in0 = 00000048 in1 = fffffff0, sel 0, time =                 9400
+mux2 out: 0x00000048
+out vals 00000000 00000000
+inside the mux2, in0 = 00000048 in1 = 00000000, sel 0, time =                 9400
+mux2 out: 0x00000048
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 0, time =                 9400
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000004c in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 9400
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000000 in1 = 00011000, sel 1, time =                 9400
+mux2 out: 0x00011000
+inside the mux2, in0 = 00000048 in1 = 00000000, sel 1, time =                 9400
+mux2 out: 0x00000000
+Instruction: 0b00000000000000010001011110110111
+Func3: 0x1
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 1
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 1
+AUIPC_TYPE: 0
+out: 0x00011000 zero: 0 op_1: 0
+Register: 0000004c
+inside the mux2, in0 = 0000004c in1 = 00000000, sel 1, time =                 9500
+mux2 out: 0x00000000
+inside the mux3, in0 = 0000004c in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 9500
+mux3 out: 0x00011000
+inside the mux2, in0 = 0000004c in1 = 00011000, sel 0, time =                 9500
+mux2 out: 0x0000004c
+write select 0f
+data in 00011000
+set 0
+reset 0
+############################
+Time:                 9600, Clock: 0
+PC_IN_MUX.out: 0000004c
+PC.out: 0000004c
+PCNext.out: 0000004c
+PCNext.PC: 0000004c
+IM.data_out: 0x000117b7
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 00
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 1
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x00011000
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00000000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00000000
+ALU_OP_2_MUX.out: 00011000
+ALU_32.out: 00011000
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: 00011000
+addr: 0x0000004c
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: x00011000
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals 00000000 00000000
+inside the mux3, in0 = 00000050 in1 = 00011000 in2 = xxxxxxxx, sel 01, time =                 9600
+mux3 out: 0x00011000
+inside the mux2, in0 = 00000050 in1 = 00011000, sel 0, time =                 9600
+mux2 out: 0x00000050
+inside the mux2, in0 = 00000000 in1 = 0000010c, sel 1, time =                 9600
+mux2 out: 0x0000010c
+inside the mux3, in0 = 00000050 in1 = 00011000 in2 = xxxxxxxx, sel 10, time =                 9600
+mux3 out: 0xxxxxxxxx
+out vals 00011000 00000000
+inside the mux2, in0 = 0000004c in1 = 00011000, sel 1, time =                 9600
+mux2 out: 0x00011000
+out: 0x0001110c zero: 0 op_1: 0
+Instruction: 0b00010000110001111010011110000011
+Func3: 0x2
+Types
+R_TYPE: 0
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 1
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+inside the mux3, in0 = 00000050 in1 = 0001110c in2 = xxxxxxxx, sel 10, time =                 9700
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000050 in1 = 0001110c, sel 0, time =                 9700
+mux2 out: 0x00000050
+Register: 00000050
+inside the mux2, in0 = 00000050 in1 = 00011000, sel 1, time =                 9700
+mux2 out: 0x00011000
+write select 0f
+data in xxxxxxxx
+set 0
+reset 0
+addr: 0x00000050
+############################
+Time:                 9800, Clock: 0
+PC_IN_MUX.out: 00000050
+PC.out: 00000050
+PCNext.out: 00000054
+PCNext.PC: 00000050
+IM.data_out: 0x00e68733
+DCU.PC_IN_MUX_SEL: 0
+DCU.RF_WR_EN: 1
+DCU.RF_SEL_1: 0f
+DCU.RF_SEL_2: 00
+DCU.RF_SEL_RD: 0f
+DCU.RF_DATA_IN_MUX_SEL: 2
+DCU.ALU_OP_1_MUX_SEL: 1
+DCU.ALU_OP_2_MUX_SEL: 1
+DCU.ALU_OPCODE: 0
+DCU.immediate: 0x0000010c
+DCU.DATA_MEMORY_WR_EN: 0
+DCU.DATA_MEMORY_SIZE_SEL: 3
+DCU.DATA_MEMORY_SIGN_EXTEND: 0
+RF.reg_1: 00011000, RF.reg_2: 00000000
+ALU_OP_1_MUX.out: 00011000
+ALU_OP_2_MUX.out: 0000010c
+ALU_32.out: 0001110c
+DM.data_out: xxxxxxxx
+RF_DATA_IN_MUX.out: xxxxxxxx
+Register x          0: x00000000
+Register x          1: x00000000
+Register x          2: xfffffff0
+Register x          3: x00000000
+Register x          4: x00000000
+Register x          5: x00000000
+Register x          6: x00000000
+Register x          7: x00000000
+Register x          8: x00000000
+Register x          9: x00000000
+Register x         10: x00000000
+Register x         11: x00000000
+Register x         12: x00000000
+Register x         13: x0000xxxx
+Register x         14: x0000xxxx
+Register x         15: xxxxxxxxx
+Register x         16: x00000000
+Register x         17: x00000000
+Register x         18: x00000000
+Register x         19: x00000000
+Register x         20: x00000000
+Register x         21: x00000000
+Register x         22: x00000000
+Register x         23: x00000000
+Register x         24: x00000000
+Register x         25: x00000000
+Register x         26: x00000000
+Register x         27: x00000000
+Register x         28: x00000000
+Register x         29: x00000000
+Register x         30: x00000000
+Register x         31: x00000000
+out vals xxxxxxxx 00000000
+inside the mux3, in0 = 00000054 in1 = 0001110c in2 = xxxxxxxx, sel 10, time =                 9800
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000054 in1 = 0001110c, sel 0, time =                 9800
+mux2 out: 0x00000054
+inside the mux2, in0 = 00000050 in1 = xxxxxxxx, sel 1, time =                 9800
+mux2 out: 0xxxxxxxxx
+inside the mux3, in0 = 00000054 in1 = 0001110c in2 = xxxxxxxx, sel 01, time =                 9800
+mux3 out: 0x0001110c
+inside the mux2, in0 = 00000000 in1 = 0000000e, sel 0, time =                 9800
+mux2 out: 0x00000000
+out vals 0000xxxx 0000xxxx
+inside the mux2, in0 = 0000xxxx in1 = 00000000, sel 0, time =                 9800
+mux2 out: 0x0000xxxx
+inside the mux2, in0 = 00000050 in1 = 0000xxxx, sel 1, time =                 9800
+mux2 out: 0x0000xxxx
+Instruction: 0b00000000111001101000011100110011
+Func3: 0x0
+Types
+R_TYPE: 1
+I_TYPE: 0
+J_TYPE: 0
+U_TYPE: 0
+LOAD TYPE: 0
+JALR TYPE: 0
+B_TYPE: 0
+S_TYPE: 0
+LUI_TYPE: 0
+AUIPC_TYPE: 0
+out: 0xxxxxxxxx zero: 0 op_1: 0
+Register: 00000054
+inside the mux2, in0 = 00000054 in1 = 0000xxxx, sel 1, time =                 9900
+mux2 out: 0x0000xxxx
+inside the mux3, in0 = 00000054 in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                 9900
+mux3 out: 0xxxxxxxxx
+inside the mux2, in0 = 00000054 in1 = xxxxxxxx, sel 0, time =                 9900
+mux2 out: 0x00000054
+write select 0e
+############################
+addr: 0x00000054
+inside the mux3, in0 = 00000058 in1 = xxxxxxxx in2 = xxxxxxxx, sel 01, time =                10000
+inside the mux2, in0 = 00000058 in1 = xxxxxxxx, sel 0, time =                10000
+make: Nothing to be done for `core'.

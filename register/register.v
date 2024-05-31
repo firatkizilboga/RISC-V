@@ -14,5 +14,9 @@ module Register #(
     out = in;
   end
 
+  always @(out) begin
+    $display("Register: %h", out);
+  end
+
 endmodule
 

@@ -7,13 +7,14 @@ module MUX_2IN_32DATA (
   reg [31:0] out_reg;
 
   always @(*) begin
-
+    
     case (select)
-      0:   out   <= in_0;
-      1:   out   <= in_1;
-      default:    out <= 31'bZ;
+      0:   out   = in_0;
+      1:   out   = in_1;
+      default:    out = 31'bZ;
     endcase
-
+    $display("inside the mux2, in0 = %h in1 = %h, sel %b, time = %d", in_0, in_1, select, $time);
+    $display("mux2 out: 0x%h", out);
   end
 endmodule
 

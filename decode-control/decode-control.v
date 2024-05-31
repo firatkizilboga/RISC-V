@@ -211,8 +211,7 @@ module DecodeControl (
 
   assign PC_IN_MUX_SEL = (J_TYPE || JALR_TYPE || branch_taken) ? 1'b1 : 1'b0;
 
-  always @(instruction) begin
-    #4;
+  always @(posedge clock) begin
     $display("Instruction: 0b%b", instruction);
     $display("Func3: 0x%h", func3);
     $display("Types");
